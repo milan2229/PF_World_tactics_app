@@ -1,0 +1,7 @@
+<h1>ユーザー一覧</h1>
+<% @user.each do |user| %>
+<div>
+  <p>ユーザーネーム：<%= link_to user.name, user_path(user.id) %>
+  <%= attachment_image_tag user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></p>
+</div>
+<% end %>

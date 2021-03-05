@@ -1,0 +1,45 @@
+<h1 class="my-10 ml-3">戦術一覧</h1>
+<div class="col-10 ml-3">
+  <table class="table">
+    <thead class="table-primary">
+      <tr>
+        <th>#</th>
+        <th>ユーザーネーム</th>
+        <th>タイトル</th>
+        <th>戦術</th>
+        <th>コメント</th>
+        <th>いいね</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <% @posts.each do |post| %>
+        <td></td>
+        <td><%= link_to post.user.name, user_path(post.user) %>
+        <%= attachment_image_tag post.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></td>
+        <td><%= link_to post.title, post_path(post.id) %></td>
+        <td><%= post.body.truncate(20) %>
+        <% if post.body.size >= 10 %>
+        <%= link_to post_path(post.id) do %>
+        <p> ...続きを読む</p>
+        <% end %></td>
+        <% end %>
+        <td><%= link_to"#{post.post_comments.count}コメント", post_path(post.id) %></td>
+        <td><% if post.favorited_by?(current_user)%>
+        <p>
+          <%= link_to post_favorites_path(post), method: :delete do %>
+          ♥<%= post.favorites.count %>いいね
+          <% end %>
+          </p>
+          <% else %>
+          <p>
+          <%= link_to post_favorites_path(post), method: :post do %>
+          ♡<%= post.favorites.count %>いいね
+          <% end %>
+          </p>
+          <% end %></td>
+      </tr>
+        <% end %>
+    </tbody>
+  </table>
+</div>
