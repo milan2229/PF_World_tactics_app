@@ -18,6 +18,15 @@ class UsersController < ApplicationController
     redirect_to user_path(@user.id)
   end
 
+ def follower
+   @user = User.find(params[:user_id])
+   @users = @user.followed
+ end
+
+ def followed
+   @user = User.find(params[:user_id])
+   @users = @user.follower
+ end
 
 private
 
