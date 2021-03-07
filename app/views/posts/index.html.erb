@@ -3,6 +3,14 @@
   <table class="table">
     <thead class="table-primary">
       <tr>
+        <%= flash[:notice] %>
+        <%= search_form_for @search, url: posts_path do |f| %>
+
+          <%= f.search_field :title_cont, placeholder: "戦術を検索...", class: "form-control" %>
+          <%= f.submit '検索', class: "btn btn-primary" %>
+        <% end %>
+
+
         <th>#</th>
         <th>ユーザーネーム</th>
         <th>タイトル</th>
@@ -15,31 +23,24 @@
       <tr>
         <% @posts.each do |post| %>
         <td></td>
-        <td><%= link_to post.user.name, user_path(post.user) %>
-        <%= attachment_image_tag post.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></td>
-        <td><%= link_to post.title, post_path(post.id) %></td>
-        <td><%= post.body.truncate(20) %>
-        <% if post.body.size >= 10 %>
+        <td><%= link_to post.user.name, user_path(post.user) -%>
+        <%= attachment_image_tag post.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" -%></td>
+        <td><%= link_to post.title, post_path(post.id) -%></td>
+        <td><%= post.body.truncate(20) -%>
+        <% if post.body.size >= 10 -%>
         <%= link_to post_path(post.id) do %>
-        <p> ...続きを読む</p>
+        ...続きを読む
         <% end %></td>
         <% end %>
         <td><%= link_to"#{post.post_comments.count}コメント", post_path(post.id) %></td>
-        <td><% if post.favorited_by?(current_user)%>
-        <p>
-          <%= link_to post_favorites_path(post), method: :delete do %>
-          ♥<%= post.favorites.count %>いいね
-          <% end %>
-          </p>
-          <% else %>
-          <p>
-          <%= link_to post_favorites_path(post), method: :post do %>
-          ♡<%= post.favorites.count %>いいね
-          <% end %>
-          </p>
-          <% end %></td>
+        <td>
+          <div id="favorite-<%= post.id %>">
+            <%= render 'favorites/favorites', post: post %>
+          </div>
+        </td>
       </tr>
         <% end %>
     </tbody>
   </table>
+        <%= paginate @posts %>
 </div>

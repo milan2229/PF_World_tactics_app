@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
+
   def index
-    @user = User.all
+    # @users = User.page(params[:page]).reverse_order
+    @search = User.ransack(params[:q])
+    @users = @search.result(distinct: true).order(name: :asc).page(params[:page])
   end
 
   def show
@@ -28,10 +31,12 @@ class UsersController < ApplicationController
    @users = @user.follower
  end
 
-private
+ private
 
-def user_params
-  params.require(:user).permit(:name, :profile_image, :introduction)
+ def user_params
+   params.require(:user).permit(:name, :profile_image, :introduction)
+ end
+
 end
 
-end
+
