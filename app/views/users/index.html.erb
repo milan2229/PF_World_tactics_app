@@ -1,7 +1,13 @@
 <h1>ユーザー一覧</h1>
-<% @user.each do |user| %>
 <div>
-  <p>ユーザーネーム：<%= link_to user.name, user_path(user.id) %>
+        <%= search_form_for @search, url: users_path do |f| %>
+          <%= f.label :name_cont, '名前' %>
+          <%= f.search_field :name_cont, placeholder: "ユーザー名を検索...", class: "form-control" %>
+          <%= f.submit '検索', class: "btn btn-primary" %>
+        <% end %>
+
+<% @users.each do |user| %>
+  <p>ユーザーネーム：<%= link_to user.name, user_path(user.id) -%>
   <%= attachment_image_tag user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></p>
 </div>
 
@@ -14,7 +20,6 @@
           <%= link_to "フォローする", follow_path(user.id), method: :POST, class: "btn btn-success" %>
         <% end %>
  <% end %>
-
-
-
 <% end %>
+
+<%= paginate @users %>

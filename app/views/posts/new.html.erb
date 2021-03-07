@@ -1,4 +1,5 @@
 <h1>戦術投稿する</h1>
+<%= flash[:al] %>
 <% if @post.errors.any? %>
   <%= @post.errors.count %>件のエラーが発生しました
   <% @post.errors.full_messages.each do |message| %>
