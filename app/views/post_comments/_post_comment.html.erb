@@ -1,7 +1,7 @@
 <p>コメント件数 : <%= @post.post_comments.count %></p>
 <% @post.post_comments.each do |post_comment| %>
 <% post_comment_user = post_comment.user %>
-<p><%= image_tag('no_image.jpg') %></p>
+<p><%= attachment_image_tag post.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></p>
 <%= post_comment.user.name %>さん
 投稿日 : <%= post_comment.created_at.strftime('%Y%m%d') %><br>
 コメント : <%= post_comment.comment %>

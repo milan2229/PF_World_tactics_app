@@ -8,6 +8,7 @@ class PostsController < ApplicationController
     # @posts = Post.page(params[:page]).reverse_order
     @search = Post.ransack(params[:q])
     @posts = @search.result(distinct: true).order(name: :asc).page(params[:page])
+    @all_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(8).pluck(:post_id))
   end
 
   def show

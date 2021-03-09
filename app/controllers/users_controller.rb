@@ -1,15 +1,18 @@
 class UsersController < ApplicationController
+  # before_action :set_user
 
   def index
     # @users = User.page(params[:page]).reverse_order
     @search = User.ransack(params[:q])
     @users = @search.result(distinct: true).order(name: :asc).page(params[:page])
+    # UserMailer.registration_confirmation.deliver
   end
 
   def show
     @user = User.find(params[:id])
     @posts = Post.all
   end
+
 
   def edit
     @user = User.find(params[:id])
