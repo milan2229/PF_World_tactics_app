@@ -1,11 +1,18 @@
-<h1 class="my-10 ml-3">戦術一覧</h1>
+<!--<h1 class="my-10 ml-3">戦術一覧</h1>-->
         <%= flash[:notice] %>
-
         <%= search_form_for @search, url: posts_path do |f| %>
-<div style="width: 200px;">
-          <%= f.search_field :title_cont, placeholder: "戦術を検索...", class: "form-control" %></div><br>
+        <div class="flex-container">
+<div class="search">
+        <%= f.search_field :title_cont, placeholder: "戦術を検索...", class: "form-control" %></div>
+          <div>
           <%= f.submit '検索', class: "btn btn-primary" %>
-        <% end %><br>
+
+          </div>
+
+        <% end %>
+
+        </div>
+
 
 
 <div class="col-12 ml-1">
@@ -15,12 +22,12 @@
 <tr>
 
         <!--<th>#</th>-->
-        <th>ユーザーネーム</th>
+        <th>名前</th>
         <th>タイトル</th>
         <th>戦術</th>
-        <th>コメント</th>
-        <th>いいね</th>
-        <th colspan="4"></th>
+        <th><i class="far fa-comment-dots"></i></th>
+        <th><i class="far fa-heart"></i></th>
+        <th></th>
 </tr>
     </thead>
     <tbody>
@@ -36,7 +43,7 @@
         続きを読む
         <% end %></td>
         <% end %>
-        <td><%= link_to"#{post.post_comments.count}コメント", post_path(post.id) %></td>
+        <td><%= link_to"#{post.post_comments.count}", post_path(post.id) %></td>
         <td>
           <div id="favorite-<%= post.id %>">
             <%= render 'favorites/favorites', post: post %>

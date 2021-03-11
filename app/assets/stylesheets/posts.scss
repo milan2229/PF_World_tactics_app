@@ -1,3 +1,23 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.search{
+  width: 230px;
+  padding-right: 5px;
+}
+.flex-container {
+	display: flex;
+	justify-content: center;
+  padding: 20px 20px;
+}
+.like{
+  margin: 10px;
+  font-size: 20px;
+}
+.mb-auto{
+background-color: black;
+height: 50px;
+}
+.header{
+padding-top: 8px;
+}

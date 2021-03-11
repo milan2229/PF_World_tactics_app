@@ -1,8 +1,16 @@
-<div class='about'>
+  <body class="d-flex h-100 text-center text-white bg-dark">
+<div class="about">
 
-     <!--<section class="col-lg-6-about text-center">-->
-        <!--<h1 class="about-title">About</h1>-->
-        <p class="about-text">
+
+<!--<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">-->
+  <%= render 'layouts/header' %>
+
+  <!--<main class="px-3">-->
+    <!--<h1 style="font-size: 100px;">World tactics</h1>-->
+  <!--  <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>-->
+
+  <!--</main>-->
+   <h2 class="about-text">
           World Tacticsは戦術理解度向上を目指しているサイトです。<br>
           サッカーはとても奥が深いスポーツで90分の内ボールに触れる時間が一人約２分と言われます。<br>
           なので、いかにボールに触れてない時間＝『戦術』が重要です。<br>
@@ -10,7 +18,19 @@
           現役でサッカーやっている人なら最先端の戦術を取り入れ、そうでない人も<br>
           よりサッカー観戦の奥深いところを理解し楽しんでいただけるようなサイトです。<br>
           ぜひご利用ください。
-        </p>
-      <!--</section>-->
+        </h2>
+
+         <p>会員登録がお済みでない方はこちらから
+      <%= link_to "新規登録", new_user_registration_path,class: "btn btn-lg btn-primary fw-bold border-white" %>
+
+         </p>
+
+
+  <footer class="mt-auto text-white-50">
+    <p>@World Tactics</p>
+  </footer>
+<!--</div>-->
+
 
 </div>
+  </body>
