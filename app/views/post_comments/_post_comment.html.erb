@@ -1,16 +1,36 @@
 <p>コメント件数 : <%= @post.post_comments.count %></p>
-<% @post.post_comments.each do |post_comment| %>
-<% post_comment_user = post_comment.user %>
-<p><%= attachment_image_tag post.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></p>
-<%= post_comment.user.name %>さん
-投稿日 : <%= post_comment.created_at.strftime('%Y%m%d') %><br>
-コメント : <%= post_comment.comment %>
-<% if post_comment.user == current_user %>
-<%= link_to "コメント削除", post_post_comment_path(post_comment.post, post_comment), method: :delete, remote: true,class: "btn btn-sm btn-danger" %>
-  <% end %>
-<% end %>
-
 <%= form_with(model:[@post,@post_comment],remote: :true) do |f| %>
-<%= f.text_area:comment,rows: '5',placeholder: "コメントをここに" %>
+<%= f.text_area:comment,rows: '2',placeholder: "コメントをここに" %>
 <%= f.submit "送信する", class: "btn btn-sm btn-primary" %>
+<% end %><br>
+<!--<th>-->
+
+<% @post.post_comments.each do |post_comment| %>
+<table class="table">
+ <tbody>
+
+<tr>
+<% post_comment_user = post_comment.user %>
+<td><%= attachment_image_tag post_comment.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></td>
+</td>
+
+<td><%= post_comment.user.name %>さん</td>
+
+<td>投稿日 : <%= post_comment.created_at.strftime('%Y/%m/%d') %></td>
+
+
+
+<td>コメント : <%= post_comment.comment %></td>
+
+<td>
+<% if post_comment.user == current_user %>
+
+<%= link_to "コメント削除", post_post_comment_path(post_comment.post, post_comment), method: :delete, remote: true,class: "btn btn-sm btn-danger" %></td>
+
+
+<!--</th>-->
+</tr>
+ </tbody>
+</table>
+  <% end %>
 <% end %>

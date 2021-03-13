@@ -4,24 +4,16 @@
         <div class="flex-container">
 <div class="search">
         <%= f.search_field :title_cont, placeholder: "戦術を検索...", class: "form-control" %></div>
-          <div>
           <%= f.submit '検索', class: "btn btn-primary" %>
-
-          </div>
-
         <% end %>
-
         </div>
 
 
 
 <div class="col-12 ml-1">
-  <table class="table">
-    <thead class="table-primary">
-
+  <table class="table table-hover">
+    <thead>
 <tr>
-
-        <!--<th>#</th>-->
         <th>名前</th>
         <th>タイトル</th>
         <th>戦術</th>
@@ -30,12 +22,13 @@
         <th></th>
 </tr>
     </thead>
+    
     <tbody>
       <tr>
         <% @posts.each do |post| %>
         <!--<td></td>-->
         <td><%= link_to post.user.name, user_path(post.user) -%>
-        <%= attachment_image_tag post.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" -%></td>
+        <div class="img"><%= attachment_image_tag post.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" -%></div></td>
         <td><%= link_to post.title, post_path(post.id) -%></td>
         <td><%= post.body.truncate(20) -%>
         <% if post.body.size >= 10 -%>

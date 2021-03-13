@@ -5,6 +5,8 @@ class UsersController < ApplicationController
     # @users = User.page(params[:page]).reverse_order
     @search = User.ransack(params[:q])
     @users = @search.result(distinct: true).order(name: :asc).page(params[:page])
+    @all_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(8).pluck(:post_id))
+
     # UserMailer.registration_confirmation.deliver
   end
 
