@@ -20,10 +20,10 @@
         <th></th>
 </tr>
     </thead>
-    
+
     <tbody>
       <tr>
-        <% @posts.each do |post| %>
+        <% posts.each do |post| %>
         <!--<td></td>-->
         <td><%= link_to post.user.name, user_path(post.user) -%>
         <div class="img"><%= attachment_image_tag post.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" -%></div></td>
@@ -44,5 +44,5 @@
         <% end %>
     </tbody>
   </table>
-        <%= paginate @posts %>
+        <%= paginate posts %>
 </div>
