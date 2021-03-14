@@ -31,8 +31,43 @@
 }
 body{
 	// background-image: linear-gradient(#c9ffbf, #ffafbd);
-	background-image: linear-gradient( 359.8deg,  rgba(252,255,222,1) 2.2%, rgba(182,241,171,1) 99.3% );
+	// background-image: linear-gradient( 359.8deg,  rgba(252,255,222,1) 2.2%, rgba(182,241,171,1) 99.3% );
+	// background-image: linear-gradient( 109.6deg,  rgba(5,84,94,1) 16%, #bbb 91.1% );
+	// background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(254,233,233,1) 0%, rgba(254,219,219,1) 90% );
+	// background-color: #FFFFDD;
 	min-height: 100vh;
+}
+// .flash{
+// 		justify-content: center;
+// }
+// .alert{
+// 	background-color: red;
+// 	height: 40px;
+// 	width: 100%;
+// 	text-align: center;
+// }
+// .success{
+// 	background-color: green;
+// 	height: 50px;
+// 	width: 100%;
+// 	text-align: center;
+// }
+
+.alert {
+	text-align: center;
+  // margin-top: 10px;
+}
+.alert-info {
+    background-color: #bde9ff;
+    border-color: #bde9ff;
+    color: #4c6977;
+}
+
+.alert-danger {
+    background-color: #f3c0c0;
+    border-color: #f3c0c0;
+    color: #3e3a3a;
+    // margin-bottom: 0px;
 }
 // .login-header{
 // 	color: black;

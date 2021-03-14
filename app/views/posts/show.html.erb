@@ -1,42 +1,27 @@
-<%= render 'layouts/header' %>
-<!--<div class='container'>-->
 <div class='container-px-5 px-sm-0'>
-
-
-<!--<div class="post-body">-->
-<div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
-  投稿者：<%= @post.user.name %>
-  <%= attachment_image_tag @post.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+  <%= render 'layouts/errors' %>
+  <div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
+    投稿者：<%= @post.user.name %>
+    <%= attachment_image_tag @post.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
   </div>
   <div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
-  タイトル：<%= @post.title %>
+    タイトル：<%= @post.title %>
   </div>
   <div class="ield form-group mt-2 text-center col-sm-8 offset-sm-2">
-  <%= @post.body %>
+    <%= @post.body %>
   </div>
   <div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
-  投稿日時：<%= @post.created_at.strftime('%Y/%m/%d') %></div>
+    投稿日時：<%= @post.created_at.strftime('%Y/%m/%d') %></div>
   <div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
-  <% if @post.user == current_user %>
-  <%= link_to "編集", edit_post_path(@post), class: "btn btn-sm btn-success" %>
-  <%= link_to "削除", post_path(@post), method: :delete, class: "btn btn-sm btn-danger" %>
-  <% end %>
-</div>
+    <% if @post.user == current_user %>
+    <%= link_to "編集", edit_post_path(@post), class: "btn btn-sm btn-success" %>
+    <%= link_to "削除", post_path(@post), method: :delete, class: "btn btn-sm btn-danger" %>
+    <% end %>
+  </div>
 <div class="ield form-group mt-2 text-center col-sm-8 offset-sm-2">
-<div id="favorite-<%= @post.id %>">
-  <%= render 'favorites/favorites', post: @post %>
-
-</div>
-<!--</div>-->
-
-<!--<div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">-->
-<!--<div class="comment-create">-->
+  <div id="favorite-<%= @post.id %>">
+    <%= render 'favorites/favorites', post: @post %>
+  </div>
 <%= render 'post_comments/post_comment', post: @post_comment %>
-<!--</div>-->
-</div>
-<div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
-<%= link_to :back do %><div style="color: black;">
-  <i class="fas fa-undo-alt">戻る</i></div>
-<% end %>
 </div>
 </div>

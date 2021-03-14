@@ -9,8 +9,9 @@ class InquiriesController < ApplicationController
     if @inquiry.save
       InquiryMailer.send_mail(@inquiry).deliver
       redirect_to posts_path
-      flash[:email] = "Your message was successfully sent."
+      flash[:notice] = "お問い合わせが完了しました。"
     else
+      flash[:alert] = "空欄があります"
       render 'new'
     end
   end
