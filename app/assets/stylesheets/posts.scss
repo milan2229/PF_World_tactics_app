@@ -1,3 +1,30 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.search{
+  width: 230px;
+  padding-right: 5px;
+}
+.flex-container {
+	display: flex;
+	justify-content: center;
+  padding: 20px 20px;
+}
+.like{
+  margin: 10px;
+  font-size: 20px;
+}
+.mb-auto{
+background-color: black;
+height: 50px;
+}
+.header{
+padding-top: 8px;
+}
+img {
+  border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+  width: 100px;  /* 縦横を同じ値にする */
+  height: 100px;  /* 縦横を同じ値にする */
+  object-fit: cover; /* 縦横比固定したまま上2つの縦横の範囲内に収まるように配置する */
+
+}

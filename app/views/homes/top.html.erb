@@ -1,8 +1,29 @@
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
 
-<div class='top'>
-  <!--<div class='container'>-->
-    <h1 class="text-center">World Tactics</h1>
-   <!--<div class="text-center"></div>-->
-
-  <!--</div>-->
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+<div class="top">
+  <main class="px-3">
+    <h1 class="world">World tactics</h1>
+    <p class="lead">
+      <%= link_to "ログイン", new_user_session_path,class: "btn btn-lg btn-info fw-bold border-white" %>
+      <%= link_to "新規登録", new_user_registration_path,class: "btn btn-lg btn-primary fw-bold border-white" %>
+    </p>
+  </main>
+  <footer>
+    <p>@World Tactics</p>
+  </footer>
 </div>
+  </body>
+</html>

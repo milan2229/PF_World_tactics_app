@@ -1,30 +1,66 @@
-<%= @user.name %>
+<!--<div class="container">-->
+  <!--<div class="row justify-content-center">-->
+    <!--<table>-->
+    <div class="container">
+<div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
 <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-好きな選手 <%= @user.introduction %>
-<% if @user.id == current_user.id %>
-  <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
-<% end %>
-
-<% @user.posts.each do |post| %>
-<div>
-  <p>タイトル : <%= link_to post.title, post_path(post.id) %></p>
 </div>
+<div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
+<%= @user.name %>
+</div>
+<div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
+好きな選手 <%= @user.introduction %>
+</div>
+<% if @user.id == current_user.id %>
+  <div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3"><%= link_to "プロフィール編集", edit_user_path(@user) %></div>
 <% end %>
+  <!--</table>-->
 
+
+<div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
 <% unless current_user == @user %>
  <% if current_user.following?(@user) %>
-  <%= link_to "フォロー外す", unfollow_path(@user.id), method: :delete, class: "btn btn-primary" %>
+  <td>
+  <%= link_to "フォロー外す", unfollow_path(@user.id), method: :delete, class: "btn btn-danger" %>
+  </td>
  <% else %>
+  <td>
   <%= link_to "フォローする", follow_path(@user.id), method: :POST, class: "btn btn-success" %>
+  </td>
  <% end %>
 <% end %>
+</div>
 
-  <tr>
+  <div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
     <% @user ||= current_user %>
     <th>follows</th>
     <th><%= link_to @user.follower.count, user_users_followed_path(@user.id) %></th>
-  </tr>
-  <tr>
+  </div>
+  <div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
     <th>followers</th>
     <th><%= link_to @user.followed.count, user_users_follower_path(@user.id) %></th>
-  </tr>
+  </div>
+
+      <p class="row justify-content-center" style="padding-top: 20px;">投稿履歴</p>
+<table class="table table-hover">
+  <!--<thead>-->
+  <!--  <tr>-->
+      <!--<th></th>-->
+      <!--<th></th>-->
+    <!--</tr>-->
+  <!--</thead>-->
+    <tbody>
+
+<tr>
+
+    <% @user.posts.each do |post| %>
+
+<td>タイトル：</td>
+  <th class="row justify-content-center"><%= link_to post.title, post_path(post.id) %></th>
+
+</tr>
+<% end %>
+    </tbody>
+</table>
+<!--</div>-->
+</div>

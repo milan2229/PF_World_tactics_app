@@ -1,24 +1,11 @@
-
 <div class='container-px-5 px-sm-0'>
   <div class='row'>
     <div class='col-sm-4 col-md-2'>
-      <h2>User</h2>
       <%= render 'users/info', user: current_user %>
     </div>
     <div class='col-sm-4 col-md-8'>
      <%= render 'index', posts: @posts %>
     </div>
-
-    <div class='col-sm-4 col-md-2'>
-    <table>
-  <tr>
-<h5><i class="fas fa-star" style="color: gold;"></i>いいねランキング</h5>
-  <% @all_ranks.each.with_index(1) do |post, i| %>
-  <tr><%= i %>位</tr>
-  <tr><%= link_to post.title, post_path(post.id) %></tr><br>
-  </tr>
-</table>
-<% end %>
-  </div>
+      <%= render 'layouts/lanks' %>
   </div>
 </div>

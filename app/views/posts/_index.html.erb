@@ -1,34 +1,32 @@
-<h1 class="my-10 ml-3">戦術一覧</h1>
-        <%= flash[:notice] %>
-
         <%= search_form_for @search, url: posts_path do |f| %>
-<div style="width: 200px;">
-          <%= f.search_field :title_cont, placeholder: "戦術を検索...", class: "form-control" %></div><br>
+        <div class="flex-container">
+<div class="search">
+        <%= f.search_field :title_cont, placeholder: "戦術を検索...", class: "form-control" %></div>
           <%= f.submit '検索', class: "btn btn-primary" %>
-        <% end %><br>
+        <% end %>
+        </div>
+
 
 
 <div class="col-12 ml-1">
-  <table class="table">
-    <thead class="table-primary">
-
+  <table class="table table-hover">
+    <thead>
 <tr>
-
-        <!--<th>#</th>-->
-        <th>ユーザーネーム</th>
+        <th>名前</th>
         <th>タイトル</th>
         <th>戦術</th>
-        <th>コメント</th>
-        <th>いいね</th>
-        <th colspan="4"></th>
+        <th><i class="far fa-comment-dots"></i></th>
+        <th><i class="far fa-heart"></i></th>
+        <th></th>
 </tr>
     </thead>
+
     <tbody>
       <tr>
-        <% @posts.each do |post| %>
+        <% posts.each do |post| %>
         <!--<td></td>-->
         <td><%= link_to post.user.name, user_path(post.user) -%>
-        <%= attachment_image_tag post.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" -%></td>
+        <div class="img"><%= attachment_image_tag post.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" -%></div></td>
         <td><%= link_to post.title, post_path(post.id) -%></td>
         <td><%= post.body.truncate(20) -%>
         <% if post.body.size >= 10 -%>
@@ -36,7 +34,7 @@
         続きを読む
         <% end %></td>
         <% end %>
-        <td><%= link_to"#{post.post_comments.count}コメント", post_path(post.id) %></td>
+        <td><%= link_to"#{post.post_comments.count}", post_path(post.id) %></td>
         <td>
           <div id="favorite-<%= post.id %>">
             <%= render 'favorites/favorites', post: post %>
@@ -46,5 +44,5 @@
         <% end %>
     </tbody>
   </table>
-        <%= paginate @posts %>
+        <%= paginate posts %>
 </div>

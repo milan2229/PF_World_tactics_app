@@ -1,20 +1,24 @@
 <table class='table'>
-
+  <tr>
+    <th><%= attachment_image_tag(user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %></th>
+    </tr>
   <tr>
 	  <!--<th>name</th>-->
-	  <th>name<br> <%= user.name %></th>
+	  <th>name</th>
+	  <th><%= user.name %></th>
   </tr>
   <tr>
 	  <!--<th>introduction</th>-->
-	  <th>好きな選手<br> <%= user.introduction %></th>
+	  <th>好きな選手</th>
+	  <th><%= user.introduction %></th>
   </tr>
   <tr>
     <% user ||= current_user %>
-    <th>follows</th>
+    <th>フォロー</th>
     <th><%= link_to user.follower.count, user_users_followed_path(user.id) %></th>
   </tr>
   <tr>
-    <th>followers</th>
+    <th>フォロワー</th>
     <th><%= link_to user.followed.count, user_users_follower_path(user.id) %></th>
   </tr>
 </table>

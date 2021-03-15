@@ -5,7 +5,6 @@ get 'homes/about' => "homes#about"
 devise_for :users, :controllers => {
     :registrations => 'users/registrations'
    }
-
 resources :posts do
   resource :favorites, only: [:create, :destroy]
   resources :post_comments, only: [:create, :destroy]
@@ -23,4 +22,5 @@ end
 post 'follow/:id' => 'relationships#follow', as: 'follow'
 delete 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow'
 
+resources :inquiries, only: [:new, :create]
 end
