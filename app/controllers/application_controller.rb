@@ -5,6 +5,14 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     posts_path
   end
+  
+  def check_guest
+    email = resource&.email || params[:user][:email].downcase
+    if email == 'guest@example.com'
+      redirect_to edit_user_registration_path, alert: 'ゲストユーザは編集、削除ができません。'
+    end
+  end
+  
 
   protected
 

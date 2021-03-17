@@ -13,14 +13,17 @@
 }
 body {
   /*text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);*/
-  box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+  // box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
   height: 100%;
 }
 .cover-container {
   max-width: 42em;
 }
 .world{
-  font-size: 100px;
+  color: white;
+  font-size: 140px;
+  font-family: 'Nephilm';
+  // margin-top: 45px;
   padding-top: 160px;
 }
 .top {
@@ -32,12 +35,13 @@ body {
   // background-repeat: no-repeat;
 }
 .about {
-    background-size: 120%;
-    width: 100vw;
-    height: 100vh;
+  background-size: 100%;
+  // background-image: image-url("about3.jpg");
+  width: 100vw;
+  height: 100vh;
 }
 .about-text {
-  color: white;
+  color: black;
   padding-top: 150px;
   font-size: 30px;
   text-align: center;
@@ -66,22 +70,11 @@ body {
 .px-3{
   text-align: center;
 }
-.world{
-  color: white;
-  font-size: 140px;
-  font-family: 'Nephilm';
-}
 footer{
   text-align: center;
   color: white;
   padding-top: 230px;
   font-size: 15px;
-}
-.about {
-  background-image: image-url("about3.jpg");
-  background-size: 100%;
-  width: 100vw;
-  height: 100vh;
 }
 .new{
   color: white;
@@ -89,4 +82,19 @@ footer{
 }
 .foot{
   padding-top: 150px;
+}
+#box{
+  height: 100vh;
+}
+.skippr1 {
+  background-image: image-url("skippr1.jpg");
+}
+.skippr2 {
+  background-image: image-url("skippr2.jpg");
+}
+.skippr3 {
+  background-image: image-url("skippr3.jpg");
+}
+.skippr4 {
+  background-image: image-url("skippr4.jpg");
 }
