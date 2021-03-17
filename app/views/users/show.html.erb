@@ -9,7 +9,7 @@
 <%= @user.name %>
 </div>
 <div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
-好きな選手 <%= @user.introduction %>
+自己紹介 <%= @user.introduction %>
 </div>
 <% if @user.id == current_user.id %>
   <div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3"><%= link_to "プロフィール編集", edit_user_path(@user) %></div>

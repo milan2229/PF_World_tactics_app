@@ -22,12 +22,18 @@
  src: font-url('/assets/Nephilm.otf')
 }
 .header{
-padding-top: 8px;
+padding: 8px;
+}
+.navbar-brand{
+  font-family: 'Nephilm';
 }
 .head{
   color: white;
   text-decoration: none;
   border: none;
+}
+.container{
+   justify-content: center;
 }
 .pagination {
   justify-content: center;
@@ -43,29 +49,29 @@ body{
 //   background-image: linear-gradient( 109.6deg,  rgba(62,161,219,1) 11.2%, rgba(93,52,236,1) 100.2% );
 // background-image: radial-gradient( circle 900px at 10.3% 17%,  rgba(3,39,93,1) 0%, rgba(37,28,28,1) 90% );
 background-image: linear-gradient( 172.6deg,  rgba(21,13,15,1) 17.6%, rgba(84,84,84,1) 98.6% );
-  height: 50px;
+  height: 70px;
 }
 img {
   border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
   width: 100px;  /* 縦横を同じ値にする */
   height: 100px;  /* 縦横を同じ値にする */
   object-fit: cover; /* 縦横比固定したまま上2つの縦横の範囲内に収まるように配置する */
-
 }
 .row-logintitle{
-  padding-top: 60px;
+  padding-top: 120px;
 }
 .alert {
 	text-align: center;
+// 	margin-bottom: 0px;
 }
-.alert-info {
-    background-color: #bde9ff;
-    border-color: #bde9ff;
-    color: #4c6977;
-}
-.alert-danger {
-    background-color: #f3c0c0;
-    border-color: #f3c0c0;
-    color: #3e3a3a;
+.container-login {
+  @extend .container-fluid;
+  max-width: 576px;
+  padding: 2rem;
 }
 
+.logo{
+   background-image: image-url("logo.png");
+   width: 64px;
+	 height: 69px;
+}

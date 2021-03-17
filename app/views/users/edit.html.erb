@@ -12,14 +12,16 @@
     <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前",class: "form-control" %>
   </div>
   <div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
-    <%= f.label :email, "好きな選手" %><br>
+    <%= f.label :email, "自己紹介" %><br>
     <%= f.text_field :introduction, autofocus: true, id:"inputintroduction", placeholder:"好きな選手など、、、",class: "form-control" %>
   </div>
   <div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
     <%= f.submit "変更を保存", class: "btn btn-primary" %>
   </div>
-  <%= link_to "パスワード変更などはこちらから", edit_user_registration_path %>
+  <div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
+  <%= link_to "パスワード変更などはこちらから", edit_user_registration_path, class: "btn btn-dark" %>
   <% end %>
+  </div>
 <%= link_to :back do %><div style="color: black;">
   <i class="fas fa-undo-alt">戻る</i></div>
   <% end %>

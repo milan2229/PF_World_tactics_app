@@ -23,6 +23,7 @@ ja:
               blank: "が空になっています"
             password:
               blank: "が空になっています"
+          
 
   devise:
     confirmations:

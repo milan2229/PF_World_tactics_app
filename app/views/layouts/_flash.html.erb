@@ -1,9 +1,8 @@
-<% if notice %>
-　 <div class="alert alert-info"><%= notice %>
-     <button type="button" class="close" data-dismiss="alert">&times;</button>
-   </div>
-<% elsif alert %>
-   <div class="alert alert-danger"><%= alert %>
-     <button type="button" class="close" data-dismiss="alert">&times;</button>
-   </div>
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= bootstrap_alert(key)%> close-flash">
+    <%= value %>
+    <button type="button" class="close close-button" data-dismiss="alert">
+      &times;
+    </button>
+  </div>
 <% end %>
