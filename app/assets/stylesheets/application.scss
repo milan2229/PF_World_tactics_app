@@ -41,6 +41,7 @@ padding: 8px;
 body{
 	min-height: 100vh;
 	background-color: rgb(233,236,239);
+	margin-top: 70px;
 }
 .mb-auto{
 //   background-color: black;
@@ -62,7 +63,7 @@ img {
 }
 .alert {
 	text-align: center;
-// 	margin-bottom: 0px;
+	margin-bottom: 0px;
 }
 .container-login {
   @extend .container-fluid;
@@ -73,5 +74,5 @@ img {
 .logo{
    background-image: image-url("logo.png");
    width: 64px;
-	 height: 69px;
+   height: 69px;
 }

@@ -12,7 +12,7 @@
   text-shadow: none; /* Prevent inheritance from `body` */
 }
 body {
-  /*text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);*/
+  // text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
   // box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
   height: 100%;
 }
@@ -40,12 +40,24 @@ body {
   width: 100vw;
   height: 100vh;
 }
+.about-title{
+  font-size: 35px;
+  text-align: center;
+  padding-top: 80px;
+    // text-shadow: 0 .05rem .1rem blue;
+  // box-shadow: 0px -10px 10px -5px rgb(247 198 104/70%) inset 0px 10px 5px -3px #f7c668;
+  // text-shadow: inset 0 0 5rem blue;
+  text-shadow: #FC0 1px 0 10px;
+  font-weight: bold;
+}
 .about-text {
   color: black;
-  padding-top: 150px;
-  font-size: 30px;
+  text-shadow: #FC0 1px 0 10px;
+  // padding-top: 100px;
+  font-size: 22px;
   text-align: center;
 }
+
 .nav-masthead .nav-link {
   padding: .25rem 0;
   font-weight: 700;
@@ -72,19 +84,20 @@ body {
 }
 footer{
   text-align: center;
-  color: white;
+  color: black;
   padding-top: 230px;
   font-size: 15px;
 }
 .new{
-  color: white;
+  // color: whi;
   text-align: center;
+  padding-top: 80px;
 }
 .foot{
   padding-top: 150px;
 }
 #box{
-  height: 100vh;
+  height: 50vh;
 }
 .skippr1 {
   background-image: image-url("skippr1.jpg");
