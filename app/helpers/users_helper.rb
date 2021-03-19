@@ -4,7 +4,7 @@ module UsersHelper
       when "alert"
        "danger"
       when "notice"
-        "success"
+        "primary"
       when "error"
        "danger"
     end

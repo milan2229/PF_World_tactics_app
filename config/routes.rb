@@ -19,10 +19,6 @@ resources :users, only: [:index, :show, :create, :edit, :update] do
    get "users/followed" => "users#followed"
 end
 
-# resources :users do
-#     get "users/follower" => "users#follower"
-#     get "users/followed" => "users#followed"
-# end
 post 'follow/:id' => 'relationships#follow', as: 'follow'
 delete 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow'
 
