@@ -6,7 +6,7 @@ class PostCommentsController < ApplicationController
    if  comment.save
     redirect_to post_path(@post)
    else
-     flash.now[:alert] = "コメントを入力してください。"
+     flash[:alert] = "コメントを入力してください。"
      render post_path(@post)
    end
   end

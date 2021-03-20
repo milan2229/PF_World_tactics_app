@@ -40,7 +40,8 @@ padding: 8px;
 }
 body{
 	min-height: 100vh;
-	background-color: rgb(233,236,239);
+// 	background-color: rgb(233,236,239);
+	background-color: #EEFFFF;
 	margin-top: 70px;
 }
 .mb-auto{
@@ -76,3 +77,11 @@ img {
    width: 64px;
    height: 69px;
 }
+.white{
+  background-color: white;
+  padding-bottom: 30px;
+}
+.caution{
+  color: red;
+}
+

@@ -15,13 +15,14 @@
 <% @users.each do |user| %>
 <div class='col-md-10 offset-md-1'>
     <tr>
-  <td><%= attachment_image_tag(@user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %></td>
-	  <td><%= @user.name %></td>
-    <td>フォロー数：<%= @user.follower.count %></td>
-    <td>フォロワー数：<%= @user.followed.count %></td>
-    <td><%= link_to "show", user_path(@user.id) %></td>
+  <td><%= attachment_image_tag(user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %></td>
+	  <td><%= user.name %></td>
+    <td>フォロー数：<%= user.follower.count %></td>
+    <td>フォロワー数：<%= user.followed.count %></td>
+    <td><%= link_to "show", user_path(user.id) %></td>
   </tr>
 <% end %>
 <% end %>
 </tbody>
 </table>
+<%= paginate @users_page %>

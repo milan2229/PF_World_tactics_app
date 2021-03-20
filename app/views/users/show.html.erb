@@ -1,21 +1,23 @@
-<!--<div class="container">-->
-  <!--<div class="row justify-content-center">-->
-    <!--<table>-->
-    <div class="container">
-<div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
-<%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-</div>
-<div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
-<%= @user.name %>
-</div>
-<div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
-自己紹介 <%= @user.introduction %>
-</div>
-<% if @user.id == current_user.id %>
-  <div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3"><%= link_to "プロフィール編集", edit_user_path(@user) %></div>
-<% end %>
-  <!--</table>-->
-
+<div class="layout-top">
+<div class="container">
+  
+  <div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
+  <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+  </div>
+  
+  <div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
+  <%= @user.name %>
+  </div>
+  
+  <div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
+  自己紹介 <%= @user.introduction %>
+  </div>
+  
+  <% if @user.id == current_user.id %>
+  <div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
+    <%= link_to "プロフィール編集", edit_user_path(@user) %>
+  </div>
+  <% end %>
 
 <div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
 <% unless current_user == @user %>
@@ -36,32 +38,21 @@
     <th>follows</th>
     <th><%= link_to @user.follower.count, user_users_followed_path(@user.id) %></th>
   </div>
+  
   <div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
     <th>followers</th>
     <th><%= link_to @user.followed.count, user_users_follower_path(@user.id) %></th>
   </div>
-
-      <p class="row justify-content-center" style="padding-top: 20px;">投稿履歴</p>
-<table class="table table-hover">
-  <!--<thead>-->
-  <!--  <tr>-->
-      <!--<th></th>-->
-      <!--<th></th>-->
-    <!--</tr>-->
-  <!--</thead>-->
-    <tbody>
-
-<tr>
-
+  <p class="row justify-content-center" style="padding-top: 20px;">投稿履歴</p>
+<table class="table table-hover"> 
+ <tbody>
+  <tr>
     <% @user.posts.each do |post| %>
-
-<td>タイトル：</td>
+  <td>タイトル：</td>
   <th class="row justify-content-center"><%= link_to post.title, post_path(post.id) %></th>
-
-</tr>
+  </tr>
 <% end %>
-    </tbody>
+ </tbody>
 </table>
-<!--</div>-->
-
 </div>
+    </div>
