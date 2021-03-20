@@ -34,7 +34,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Update", class: "btn btn-success" %><br><br>
+    <%= f.submit "更新", class: "btn btn-success" %><br><br>
   </div>
 <% end %>
 </div>
@@ -42,7 +42,7 @@
 
 <div>アカウント削除<div>
 
-<p><%= button_to "Delete", registration_path(resource_name), data: { confirm: "本当に削除しますか?" }, method: :delete, class: "btn btn-danger" %></p>
+<p><%= button_to "削除", registration_path(resource_name), data: { confirm: "本当に削除しますか?" }, method: :delete, class: "btn btn-danger" %></p>
 
 <%= link_to :back do %><div style="color: black;">
   <i class="fas fa-undo-alt">戻る</i></div>

@@ -2,12 +2,9 @@ class UsersController < ApplicationController
   # before_action :set_user
 
   def index
-    # @users = User.page(params[:page]).reverse_order
     @search = User.ransack(params[:q])
-    @users = @search.result(distinct: true).order(name: :asc).page(params[:page])
+    @users = @search.result(distinct: true).order(created_at: "DESC").page(params[:page]).per(10)
     @all_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(8).pluck(:post_id))
-
-    # UserMailer.registration_confirmation.deliver
   end
 
   def show
@@ -34,11 +31,13 @@ class UsersController < ApplicationController
  def follower
    @user = User.find(params[:user_id])
    @users = @user.follower_user
+   @users_page = User.page(params[:page]).per(10)
  end
 
  def followed
    @user = User.find(params[:user_id])
    @users = @user.following_user
+   @users_page = User.page(params[:page]).per(10)
  end
 
  private
