@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = Post.all
+    @favorite_posts = @user.favorite_posts
   end
 
 
@@ -38,6 +39,11 @@ class UsersController < ApplicationController
    @user = User.find(params[:user_id])
    @users = @user.following_user
    @users_page = User.page(params[:page]).per(10)
+ end
+
+ def favorites
+   @user = User.find(params[:user_id])
+   @favorite_posts = @user.favorite_posts
  end
 
  private

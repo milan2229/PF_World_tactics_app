@@ -14,9 +14,11 @@ resources :posts do
   resources :post_comments, only: [:create, :destroy]
 end
 
+
 resources :users, only: [:index, :show, :create, :edit, :update] do
    get "users/follower" => "users#follower"
    get "users/followed" => "users#followed"
+   get "users/favorites" => "users#favorites"
 end
 
 post 'follow/:id' => 'relationships#follow', as: 'follow'
