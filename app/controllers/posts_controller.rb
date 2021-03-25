@@ -8,6 +8,8 @@ class PostsController < ApplicationController
     @search = Post.ransack(params[:q])
     @posts = @search.result(distinct: true).order(created_at: "DESC").includes(:user).page(params[:page]).per(10)
     @all_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(8).pluck(:post_id))
+    # @all_ranks = Post.find(Favorite.group(:post_id).order(created_at: "DESC").limit(8).pluck(:post_id))
+    # ↑RSpecで警告出るので一時的にこうしているだけ
   end
 
   def show

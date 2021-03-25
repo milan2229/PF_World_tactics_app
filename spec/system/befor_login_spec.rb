@@ -16,7 +16,7 @@ describe '[STEP1] ユーザログイン前のテスト' do
         expect(log_in_link).to match("ログイン")
       end
       it 'ログインリンクの内容が正しい' do
-       log_in_link = find_all('a')[4].native.inner_text
+      log_in_link = find_all('a')[4].native.inner_text
         expect(page).to have_link log_in_link, href: new_user_session_path
       end
     end
@@ -252,4 +252,4 @@ describe '[STEP1] ユーザログイン前のテスト' do
     end
   end
 
- end
+end
