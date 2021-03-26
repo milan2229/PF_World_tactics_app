@@ -9,9 +9,9 @@ class User < ApplicationRecord
   # has_secure_password
 
   #   validates :name, presence: true
-    # validates :password, presence: true
-    # validates :email, presence: true
-    # validates :email, uniqueness: true
+  # validates :password, presence: true
+  # validates :email, presence: true
+  # validates :email, uniqueness: true
 
   has_many :posts, dependent: :destroy
   has_many :post_comments, dependent: :destroy
@@ -45,5 +45,4 @@ class User < ApplicationRecord
       user.password = SecureRandom.urlsafe_base64
     end
   end
-
 end

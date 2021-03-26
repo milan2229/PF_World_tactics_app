@@ -40,24 +40,22 @@ padding: 8px;
 }
 body{
 	min-height: 100vh;
-// 	background-color: rgb(233,236,239);
-	background-color: #EEFFFF;
+	background-color: rgb(233,236,239);
 	margin-top: 70px;
 }
+.navbar {
+  background-image: linear-gradient( 172.6deg,  rgba(21,13,15,1) 17.6%, rgba(84,84,84,1) 98.6% );
+
+}
 .mb-auto{
-//   background-color: black;
-//   background: radial-gradient(#F2B9A1, #EA6264);
-// background: linear-gradient( #ffffff 0%, #f20a0a 51%, #030005 100%);
-//   background-image: linear-gradient( 109.6deg,  rgba(62,161,219,1) 11.2%, rgba(93,52,236,1) 100.2% );
-// background-image: radial-gradient( circle 900px at 10.3% 17%,  rgba(3,39,93,1) 0%, rgba(37,28,28,1) 90% );
 background-image: linear-gradient( 172.6deg,  rgba(21,13,15,1) 17.6%, rgba(84,84,84,1) 98.6% );
   height: 70px;
 }
 img {
-  border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
-  width: 100px;  /* 縦横を同じ値にする */
-  height: 100px;  /* 縦横を同じ値にする */
-  object-fit: cover; /* 縦横比固定したまま上2つの縦横の範囲内に収まるように配置する */
+  border-radius: 50%; 
+  width: 100px;  
+  height: 100px;  
+  object-fit: cover;
 }
 .row-logintitle{
   padding-top: 120px;

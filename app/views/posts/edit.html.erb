@@ -1,34 +1,29 @@
 <div class='container'>
   <div class="row justify-content-center">
-<h1 style="padding-top: 20px;">戦術変更</h1>
-</div>
-<%= flash[:al] %>
-
-<% if @post.errors.any? %>
-  <%= @post.errors.count %>件のエラーが発生しました
-  <% @post.errors.full_messages.each do |message| %>
-    <%= message %>
-  <% end %>
-<% end %>
-
-
+    <h1 style="padding-top: 20px;">戦術変更</h1>
+  </div>
+    <%= flash[:al] %>
+    <% if @post.errors.any? %>
+      <%= @post.errors.count %>件のエラーが発生しました
+      <% @post.errors.full_messages.each do |message| %>
+        <%= message %>
+      <% end %>
+    <% end %>
 <%= form_with model: @post, local:true do |f| %>
-
 <div class="form-group">
   <h4>タイトル</h4>
   <%= f.text_field :title, placeholder: "タイトルを入力してください", class: "form-control" %>
-  </div>
-  <div class="form-group">
+</div>
+<div class="form-group">
   <h4>戦術</h4>
   <%= f.text_area :body, size: "80x10",placeholder: "内容を入力してください", class: "form-control" %>
-  </div>
-      <div class="row justify-content-center">
+</div>
+<div class="row justify-content-center">
   <%= f.submit '  保存  ', class: "btn btn-sm btn-primary" %>
-  </div>
+</div>
 <% end %>
-<!--</div>-->
 <%= link_to :back do %><div style="color: black;">
-  <i class="fas fa-undo-alt">戻る</i></div>
+<i class="fas fa-undo-alt">戻る</i></div>
 <% end %>
 </div>
 

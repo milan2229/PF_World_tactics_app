@@ -1,18 +1,17 @@
-    <div class='col-sm-4 col-md-2'>
-    <table class='table'>
-  <tr>
+<div class='col-sm-4 col-md-2'>
+  <table class='table'>
+    <tr>
     <div class="like">
-<i class="fas fa-star" style="color: gold;"></i>いいねランキング</div>
-  <% @all_ranks.each.with_index(1) do |post, i| %>
-  <th><%= i %>位</th>
-
-  <th><%= post.body.truncate(20) -%>
+     <i class="fas fa-star" style="color: gold;"></i>いいねランキング</div>
+      <% @all_ranks.each.with_index(1) do |post, i| %>
+      <th><%= i %>位</th>
+      <th><%= post.body.truncate(20) -%>
         <% if post.body.size >= 10 -%>
         <%= link_to post_path(post.id) do %>
         続き
         <% end %></th>
         <% end %>
-  </tr>
-<% end %>
-</table>
-  </div>
+    </tr>
+      <% end %>
+  </table>
+</div>

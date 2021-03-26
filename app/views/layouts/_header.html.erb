@@ -1,6 +1,5 @@
 <div class="fixed-top">
 <header class="mb-auto">
-
   <div class="header">
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
@@ -9,7 +8,6 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <!--<nav class="nav nav-masthead justify-content-center float-md-end">-->
         <ul class="navbar-nav ml-auto">
       <% if user_signed_in? %>
          <li><%= link_to '戦術投稿フォーム', new_post_path,class: 'fas fa-plus nav-link text-light' %></li>
@@ -23,7 +21,6 @@
          <li><%= link_to 'About', homes_about_path,class: 'fas fa-link nav-link text-light'%></li>
          <li><%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: 'fas fa-link nav-link text-light'%></li>
     <% end %>
-
         </ul>
       </div>
     </div>
