@@ -1,5 +1,4 @@
 class UserMailer < ApplicationMailer
-
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
@@ -10,7 +9,7 @@ class UserMailer < ApplicationMailer
     # @greeting = ""
     @user = resource
     mail to: @user.email,
-    subject: "World Tactics 登録確認メール"
+         subject: "World Tactics 登録確認メール"
     # @user = user
   end
 end

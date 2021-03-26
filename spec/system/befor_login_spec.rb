@@ -16,18 +16,19 @@ describe '[STEP1] ユーザログイン前のテスト' do
         expect(log_in_link).to match("ログイン")
       end
       it 'ログインリンクの内容が正しい' do
-      log_in_link = find_all('a')[4].native.inner_text
+        log_in_link = find_all('a')[4].native.inner_text
         expect(page).to have_link log_in_link, href: new_user_session_path
       end
     end
-      it '新規登録リンクが表示される: 画面中央が「新規登録」である' do
-        sign_up_link = find_all('a')[5].native.inner_text
-        expect(sign_up_link).to match("新規登録")
-      end
-      it '新規登録リンクの内容が正しい' do
-        sign_up_link = find_all('a')[5].native.inner_text
-        expect(page).to have_link sign_up_link, href: new_user_registration_path
-      end
+
+    it '新規登録リンクが表示される: 画面中央が「新規登録」である' do
+      sign_up_link = find_all('a')[5].native.inner_text
+      expect(sign_up_link).to match("新規登録")
+    end
+    it '新規登録リンクの内容が正しい' do
+      sign_up_link = find_all('a')[5].native.inner_text
+      expect(page).to have_link sign_up_link, href: new_user_registration_path
+    end
   end
 
   describe 'アバウト画面のテスト' do
@@ -214,15 +215,15 @@ describe '[STEP1] ユーザログイン前のテスト' do
         users_guest_link = find_all('a')[3].native.inner_text
         expect(users_guest_link).to match("ユーザー一覧")
       end
-      it '投稿一覧リンクが表示される: 左上から1番目のリンクが「投稿一覧」である' do
+      it '投稿一覧リンクが表示される: 左上から4番目のリンクが「マイページ」である' do
         mypage_link = find_all('a')[4].native.inner_text
         expect(mypage_link).to match("マイページ")
       end
-      it 'Aboutリンクが表示される: 左上から2番目のリンクが「About」である' do
+      it 'Aboutリンクが表示される: 左上から5番目のリンクが「お問い合わせ」である' do
         contact_link = find_all('a')[5].native.inner_text
         expect(contact_link).to match("お問い合わせ")
       end
-      it 'ゲストログインリンクが表示される: 左上から3番目のリンクが「ゲストログイン(閲覧用)」である' do
+      it 'ゲストログインリンクが表示される: 左上から6番目のリンクが「ログアウト」である' do
         logout_link = find_all('a')[6].native.inner_text
         expect(logout_link).to match("ログアウト")
       end
@@ -251,5 +252,4 @@ describe '[STEP1] ユーザログイン前のテスト' do
       end
     end
   end
-
 end

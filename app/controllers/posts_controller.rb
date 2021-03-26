@@ -1,32 +1,33 @@
 class PostsController < ApplicationController
-
   def new
     @post = Post.new
   end
 
   def index
     @search = Post.ransack(params[:q])
-    @posts = @search.result(distinct: true).order(created_at: "DESC").includes(:user).page(params[:page]).per(10)
-    @all_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(8).pluck(:post_id))
-    # @all_ranks = Post.find(Favorite.group(:post_id).order(created_at: "DESC").limit(8).pluck(:post_id))
+    @posts = @search.result(distinct: true).order(created_at: "DESC").
+      includes(:user).page(params[:page]).per(10)
+    @all_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').
+                 limit(8).pluck(:post_id))
+    # @all_ranks = Post.find(Favorite.group(:post_id).order(created_at: "DESC").limit(8).
+    # pluck(:post_id))
     # ↑RSpecで警告出るので一時的にこうしているだけ
   end
 
   def show
     @post = Post.find(params[:id])
     @post_comment = PostComment.new
-    # @users = User.find(params[:id])
   end
 
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
-    flash[:notice] = "投稿が完了しました。"
-    redirect_to posts_path
+      flash[:notice] = "投稿が完了しました。"
+      redirect_to posts_path
     else
-    flash[:alert] = "内容を入力してください。"
-    render :new
+      flash[:alert] = "内容を入力してください。"
+      render :new
     end
   end
 
