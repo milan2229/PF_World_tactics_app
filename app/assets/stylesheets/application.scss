@@ -19,7 +19,9 @@
 
 @font-face{
  font-family: 'Nephilm';
- src: font-url('/assets/Nephilm.otf')
+ src: font-url('/assets/Nephilm.otf') format("truetype");
+ font-weight: normal;
+ font-style: normal;
 }
 .header{
 padding: 8px;
