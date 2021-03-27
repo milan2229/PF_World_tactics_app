@@ -10,16 +10,16 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
       <% if user_signed_in? %>
-         <li><%= link_to '戦術投稿フォーム', new_post_path,class: 'fas fa-plus nav-link text-light' %></li>
-         <li><%= link_to '戦術投稿一覧', posts_path,class: 'fas fa-book-open nav-link text-light' %></li>
-         <li><%= link_to 'ユーザー一覧', users_path,class: 'fas fa-users nav-link text-light' %></li>
-         <li><%= link_to 'マイページ', user_path(current_user.id),class: 'fas fa-user nav-link text-light' %></li>
-         <li><%= link_to 'お問い合わせ', new_inquiry_path,class: 'fas fa-envelope nav-link text-light' %></li>
-         <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete,class: 'fas fa-sign-out-alt nav-link text-light' %></li>
+         <li><%= link_to '戦術投稿フォーム', new_post_path,class: 'fas fa-plus'%></li>
+         <li><%= link_to '戦術投稿一覧', posts_path,class: 'fas fa-book-open' %></li>
+         <li><%= link_to 'ユーザー一覧', users_path,class: 'fas fa-users' %></li>
+         <li><%= link_to 'マイページ', user_path(current_user.id),class: 'fas fa-user' %></li>
+         <li><%= link_to 'お問い合わせ', new_inquiry_path,class: 'fas fa-envelope' %></li>
+         <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete,class: 'fas fa-sign-out-alt' %></li>
       <% else %>
-         <li><%= link_to '投稿一覧', posts_path,class: 'fas fa-book-open nav-link text-light' %></li>
-         <li><%= link_to 'About', homes_about_path,class: 'fas fa-link nav-link text-light'%></li>
-         <li><%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: 'fas fa-link nav-link text-light'%></li>
+         <li><%= link_to '投稿一覧', posts_path,class: 'fas fa-book-open' %></li>
+         <li><%= link_to 'About', homes_about_path,class: 'fas fa-link'%></li>
+         <li><%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: 'fas fa-link'%></li>
     <% end %>
         </ul>
       </div>
