@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  # before_action :set_user
 
   def index
     @search = User.ransack(params[:q])
@@ -10,8 +9,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = Post.all
     @favorite_posts = @user.favorite_posts
+    @posts = @user.posts.page(params[:page]).per(5)
   end
 
   def edit
@@ -31,14 +30,12 @@ class UsersController < ApplicationController
 
   def follower
     @user = User.find(params[:user_id])
-    @users = @user.follower_user
-    @users_page = User.page(params[:page]).per(10)
+    @users = @user.follower_user.page(params[:page]).per(5)
   end
 
   def followed
     @user = User.find(params[:user_id])
-    @users = @user.following_user
-    @users_page = User.page(params[:page]).per(10)
+    @users = @user.following_user.page(params[:page]).per(5)
   end
 
   def favorites
