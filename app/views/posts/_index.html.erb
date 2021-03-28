@@ -5,41 +5,31 @@
   <%= f.submit '検索', class: "btn btn-primary" %>
 <% end %>
 </div>
-<div class="white">
 <div class="col-12 ml-1">
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>名前</th>
-        <th>タイトル</th>
-        <th>戦術</th>
-        <th><i class="far fa-comment-dots"></i></th>
-        <th><i class="far fa-heart"></i></th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <% posts.each do |post| %>
-        <td><%= link_to post.user.name, user_path(post.user) -%>
-        <div class="img"><%= attachment_image_tag post.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" -%></div></td>
-        <td><%= link_to post.title, post_path(post.id) -%></td>
-        <td><%= post.body.truncate(20) -%>
+<% posts.each do |post| %>
+<div class="card text-center">
+  <div class="card-header">
+   <%= attachment_image_tag post.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" -%>
+    <%= link_to post.user.name, user_path(post.user) -%>さんが
+     <%= l post.created_at %>に投稿
+  </div>
+  <div class="card-body">
+    <h5 class="card-title" style="font-weight: bold;"><%= link_to post.title, post_path(post.id) -%></h5>
+    <p class="card-text"><%= post.body.truncate(100) -%>
         <% if post.body.size >= 10 -%>
         <%= link_to post_path(post.id) do %>
         続きを読む
-        <% end %></td>
         <% end %>
-        <td><%= link_to"#{post.post_comments.count}", post_path(post.id) %></td>
-        <td>
-          <div id="favorite-<%= post.id %>">
-            <%= render 'favorites/favorites', post: post %>
-          </div>
-        </td>
-      </tr>
-        <% end %>
-    </tbody>
-  </table>
+        <% end %></p>
+  </div>
+  <div class="card-footer text-muted">
+  <span style="padding-right: 20px;"><i class="far fa-comment-dots"></i>
+  <%= link_to"#{post.post_comments.count}", post_path(post.id) %></span>
+   <span id="favorite-<%= post.id %>">
+   <%= render 'favorites/favorites', post: post %>
+   </span>
+  </div>
+</div><br>
+<% end %>
 <%= paginate posts %>
-</div>
 </div>

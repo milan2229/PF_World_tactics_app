@@ -2,9 +2,17 @@
   <table class='table'>
     <tr>
       <div class="like">
-      <i class="fas fa-star" style="color: gold;"></i>いいねランキング</div>
+      <i class="fas fa-heart" style="color: red;"></i>いいねランキング</div>
       <% @all_ranks.each.with_index(1) do |post, i| %>
+      <% if i==1 %>
+      <th><i class="fas fa-trophy" style="color: gold;"></i></th>
+     <% elsif i==2 %>
+     <th><i class="fas fa-trophy" style="color: silver;"></i></th>
+     <% elsif i==3 %>
+     <th><i class="fas fa-trophy" style="color: #BA6E40;"></i></th>
+     <% else %>
       <th><%= i %>位</th>
+      <% end %>
       <th><%= post.body.truncate(20) -%>
           <% if post.body.size >= 10 -%>
           <%= link_to post_path(post.id) do %>

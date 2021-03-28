@@ -4,11 +4,8 @@ class UsersController < ApplicationController
   def index
     @search = User.ransack(params[:q])
     @users = @search.result(distinct: true).order(created_at: "DESC").page(params[:page]).per(10)
-    @all_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').
-                 limit(8).pluck(:post_id))
-    # @all_ranks = Post.find(Favorite.group(:post_id).order(created_at: "DESC").
-    # limit(8).pluck(:post_id))
-    # ↑RSpecで警告出るので一時的にこうしているだけ
+    @all_ranks = Post.find(Favorite.group(:post_id).
+    order(Arel.sql('count(post_id) desc')).limit(8).pluck(:post_id))
   end
 
   def show

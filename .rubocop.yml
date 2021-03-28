@@ -1,2 +1,7 @@
 inherit_from:
   - .rubocop_airbnb.yml
+
+AllCops:
+ Exclude:
+  - 'bin/setup'
+  - 'bin/update'

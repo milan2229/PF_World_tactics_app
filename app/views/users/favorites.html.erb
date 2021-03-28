@@ -1,15 +1,32 @@
 <div class="container">
 <p class="row justify-content-center" style="padding-top: 20px;"><i class="fas fa-heart" style="color: red;"></i>いいねした投稿</p>
-<table class="table table-hover">
- <tbody>
-<tr>
-　<% @favorite_posts.each do |f_post| %>
-  <td>タイトル：</td>
-  <th class="row justify-content-center"><%= link_to f_post.title, post_path(f_post.id) %></th>
- </tr>
-  <% end %>
- </tbody>
-</table>
+<div class="col-12 ml-1">
+<% @favorite_posts.each do |f_post| %>
+<div class="card text-center">
+  <div class="card-header">
+      <%= attachment_image_tag f_post.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" -%>
+  <%= link_to f_post.user.name, user_path(f_post.user) -%>さんが
+     <%= l f_post.created_at %>に投稿</div>
+  <div class="card-body">
+    <h5 class="card-title" style="font-weight: bold;"><%= link_to f_post.title, post_path(f_post.id) -%></h5>
+    <p class="card-text"><%= f_post.body.truncate(100) -%>
+        <% if f_post.body.size >= 10 -%>
+        <%= link_to post_path(f_post.id) do %>
+        続きを読む
+        <% end %>
+        <% end %></p>
+  </div>
+  <div class="card-footer text-muted">
+<span style="padding-right: 20px;"><i class="far fa-comment-dots"></i>
+  <%= link_to"#{f_post.post_comments.count}", post_path(f_post.id) %></span>
+   <span id="favorite-<%= f_post.id %>">
+   <%= render 'favorites/favorites', post: f_post %>
+   </span>
+  </div>
+</div><br>
+<% end %>
+</div>
+
 </div>
 
 
