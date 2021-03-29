@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def index
     @search = User.ransack(params[:q])
     @users = @search.result(distinct: true).order(created_at: "DESC").page(params[:page]).per(10)
