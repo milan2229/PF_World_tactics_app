@@ -11,11 +11,12 @@
   <% post_comment_user = post_comment.user %>
   <td><%= attachment_image_tag post_comment.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></td>
   <td><%= link_to "#{post_comment.user.name}", post_comment.user -%></td>
-  <td>投稿日 : <%= post_comment.created_at.strftime('%Y/%m/%d') %></td>
-  <td>コメント : <%= post_comment.comment %></td>
+  <td>投稿日 : <%= l @post.created_at %></td>
+  <td>コメント : </td>
+  <td style="word-break: break-word;"><%= post_comment.comment %></td>
   <% if post_comment.user == current_user %>
   <td>
-<%= link_to "コメント削除", post_post_comment_path(post_comment.post, post_comment), method: :delete, remote: true,class: "btn btn-sm btn-danger" %></td>
+<%= link_to "削除", post_post_comment_path(post_comment.post, post_comment), method: :delete, remote: true,class: "btn btn-sm btn-danger" %></td>
  </tr>
  </tbody>
 </table>

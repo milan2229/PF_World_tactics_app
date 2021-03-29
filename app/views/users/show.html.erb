@@ -47,11 +47,12 @@
 
   <p class="row justify-content-center" style="padding-top: 20px;">投稿履歴</p>
  <div class="col-12 ml-1">
+   <% if @posts.count == 0 %>
+<h5 style="text-align: center;">まだ投稿がありません。投稿してみましょう！</h5>
+<% else %>
 <% @posts.each do |post| %>
 <div class="card text-center">
   <div class="card-header">
-   <%= attachment_image_tag post.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" -%>
-    <%= link_to post.user.name, user_path(post.user) -%>さんが
      <%= l post.created_at %>に投稿
   </div>
   <div class="card-body">
@@ -75,5 +76,6 @@
 <% end %>
 </div>
  </div>
+ <% end %>
 </div>
 <%= paginate @posts %>

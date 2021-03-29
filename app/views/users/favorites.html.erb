@@ -1,7 +1,7 @@
 <div class="container">
 <p class="row justify-content-center" style="padding-top: 20px;"><i class="fas fa-heart" style="color: red;"></i>いいねした投稿</p>
 <div class="col-12 ml-1">
-<% @favorite_posts.each do |f_post| %>
+<% @favorite.each do |f_post| %>
 <div class="card text-center">
   <div class="card-header">
       <%= attachment_image_tag f_post.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" -%>
@@ -18,7 +18,7 @@
   </div>
   <div class="card-footer text-muted">
 <span style="padding-right: 20px;"><i class="far fa-comment-dots"></i>
-  <%= link_to"#{f_post.post_comments.count}", post_path(f_post.id) %></span>
+  <%= link_to f_post.post_comments.count, post_path(f_post.id) %></span>
    <span id="favorite-<%= f_post.id %>">
    <%= render 'favorites/favorites', post: f_post %>
    </span>
@@ -26,7 +26,7 @@
 </div><br>
 <% end %>
 </div>
-
+<%= paginate @favorite %>
 </div>
 
 

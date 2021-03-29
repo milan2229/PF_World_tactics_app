@@ -30,17 +30,17 @@ class UsersController < ApplicationController
 
   def follower
     @user = User.find(params[:user_id])
-    @users = @user.follower_user.page(params[:page]).per(5)
+    @users = @user.follower_user.page(params[:page]).per(10)
   end
 
   def followed
     @user = User.find(params[:user_id])
-    @users = @user.following_user.page(params[:page]).per(5)
+    @users = @user.following_user.page(params[:page]).per(10)
   end
 
   def favorites
     @user = User.find(params[:user_id])
-    @favorite_posts = @user.favorite_posts
+    @favorite = @user.favorite_posts.page(params[:page]).per(10)
   end
 
   private

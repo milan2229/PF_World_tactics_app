@@ -3,7 +3,7 @@
     <tr>
       <div class="like">
       <i class="fas fa-heart" style="color: red;"></i>いいねランキング</div>
-      <% @all_ranks.each.with_index(1) do |post, i| %>
+      <tr></tr><% @all_ranks.each.with_index(1) do |post, i| %>
       <% if i==1 %>
       <th><i class="fas fa-trophy" style="color: gold;"></i></th>
      <% elsif i==2 %>
