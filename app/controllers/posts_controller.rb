@@ -1,9 +1,11 @@
 class PostsController < ApplicationController
+
   def new
     @post = Post.new
   end
 
   def index
+    # @post = Post.find(params[:id])
     @search = Post.ransack(params[:q])
     @posts = @search.result(distinct: true).order(created_at: "DESC").
       includes(:user).page(params[:page]).per(10)
@@ -17,9 +19,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    # @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
+    tag_list = params[:post][:tag_ids].split(',')
+    @tags = tag_list
     @post.user_id = current_user.id
     if @post.save
+      @post.save_tags(tag_list)
       flash[:notice] = "投稿が完了しました。"
       redirect_to posts_path
     else

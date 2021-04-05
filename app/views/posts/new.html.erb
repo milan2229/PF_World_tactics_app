@@ -12,6 +12,14 @@ WorldTacticsはフットボールに関する知識を記録・共有するた�
   <div class="caution">必須</div>
     <%= f.text_field :title, placeholder: "タイトルを入力してください", class: "form-control" %>
 </div>
+
+
+<div class="form-group">
+  <h4>タグ</h4>
+  <div class="caution">必須</div>
+<%= f.text_field :tag_ids, class: "form-control", id:'tag_ids', placeholder: "タグをつける。複数つけるには','で区切ってください。" %>
+</div>
+
 <div class="form-group">
   <h4>戦術</h4>
   <div class="caution">必須</div>
@@ -25,3 +33,4 @@ WorldTacticsはフットボールに関する知識を記録・共有するた�
   <i class="fas fa-undo-alt">戻る</i></div>
 <% end %>
 </div>
+

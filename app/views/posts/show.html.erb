@@ -25,3 +25,6 @@
 <%= render 'post_comments/post_comment', post: @post_comment %>
 </div>
 
+<% @post.tags.each do |tag| %>
+   <%= tag.name %>
+<% end %>
