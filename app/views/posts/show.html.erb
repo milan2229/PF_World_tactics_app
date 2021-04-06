@@ -5,6 +5,9 @@
   <h3 style="font-weight: bold;">
     タイトル：<%= @post.title %>
   </h5>
+<% @post.tags.each do |tag| %>
+   <i class="fas fa-tags"></i><%= tag.name %>
+<% end %>
   <hr>
   <h6>
   <%=safe_join(@post.body.split("\n"),tag(:br))%>
@@ -24,7 +27,3 @@
   </div>
 <%= render 'post_comments/post_comment', post: @post_comment %>
 </div>
-
-<% @post.tags.each do |tag| %>
-   <%= tag.name %>
-<% end %>
