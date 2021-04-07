@@ -5,9 +5,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    # @posts = params[:tag_id].present? ? Tag.find(params[:tag_id]).posts : Post.all
     @search = Post.ransack(params[:q])
-    # @search = params[:tag_id].present? ? Tag.find(params[:tag_id]).posts : Post.all
     @posts = @search.result(distinct: true).order(created_at: "DESC").includes(:user).page(params[:page]).per(10)
     @posts = @posts.joins(:tag_relationships).where(tag_relationships: {tag_id: params[:tag_id]}) if params[:tag_id].present?
     @all_ranks = Post.find(Favorite.group(:post_id).
@@ -21,7 +19,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-    tag_list = params[:post][:tag_ids].split('、')
+    tag_list = params[:post][:tag_ids].split(',')
     @tags = tag_list
     @post.user_id = current_user.id
     if @post.save
