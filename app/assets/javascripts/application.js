@@ -19,6 +19,7 @@
 //= require jquery_ujs
 //= require activestorage
 //= require turbolinks
+//= require tagsinput
 //= require_tree .
 
 document.addEventListener("turbolinks:load"
@@ -48,5 +49,13 @@ $(document).ready(function () {
   });
 });
 
+
+$('.bootstrap-tagsinput input').keydown(function(e) {
+    if (e.which === 13) {
+        $(this).blur();
+        $(this).focus();
+        return false;
+    }
+});
 });
 
