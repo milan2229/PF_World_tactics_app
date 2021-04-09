@@ -1,6 +1,6 @@
 # World tactics
-<img width="1440" alt="スクリーンショット 2021-04-07 16 40 29"
-src="https://user-images.githubusercontent.com/64453093/113877063-4bd48c80-97f3-11eb-91c9-d209ab33e9a8.png">
+<img width="1427" alt="READMEスクリーンショット 2021-04-07 16 40 44"
+src="https://user-images.githubusercontent.com/64453093/114139074-83554d00-9949-11eb-849a-51f8025e2f4a.png">
 
 ## サイト概要
 サッカーの戦術を情報共有するサイト。
