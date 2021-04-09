@@ -16,6 +16,7 @@
  @import "bootstrap";
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
+ @import 'tagsinput';
 
 .header{
 padding: 8px;
@@ -114,6 +115,7 @@ img {
 .navbar-brand > span{
   color: yellow;
 }
+
 footer{
   padding-top: 0px;
 }
@@ -123,4 +125,22 @@ footer p{
   color: yellow;
   margin-bottom: 0;
   padding: 20px 0;
+}
+.fa-tags{
+  color: orange;
+  margin-left: 15px;
+}
+.tag {
+    background-color: #03a9f494;
+    border-radius: 4px;
+}
+.tag  > #text{
+  color: black;
+}
+.bootstrap-tagsinput .tag{
+  padding: 4px 7px;
+  width: 190px;
+}
+.bootstrap-tagsinput{
+  padding: 8px 150px 8px 5px;
 }
