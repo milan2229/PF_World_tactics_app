@@ -2,7 +2,6 @@
 <img width="1427" alt="READMEスクリーンショット 2021-04-07 16 40 44"
 src="https://user-images.githubusercontent.com/64453093/114139074-83554d00-9949-11eb-849a-51f8025e2f4a.png">
 
-
 ## サイト概要
 サッカーの戦術を情報共有するサイト。
 ユーザー同士で最新の戦術について語りあうSNS。
