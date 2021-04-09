@@ -1,39 +1,32 @@
 <div class="container">
   <div class="row-logintitle">
-<h2>ログイン</h2>
- </div>
- <div class="row">
+    <h2>ログイン</h2>
+  </div>
+  <div class="row">
     <div class="col-1"></div>
     <p>会員の方はこちらからログイン</p>
   </div>
-
-<div class="row">
+  <div class="row">
     <%= flash[:error] %>
     <div class="col-2"></div>
-<%= form_with model: @user, url: user_session_path, local: true do |f| %>
-
+     <%= form_with model: @user, url: user_session_path, local: true do |f| %>
       <table>
         <tr>
           <th style="width: 150px"><%= f.label :メールアドレス %></th>
           <td></td>
           <td><%= f.email_field :email, autofocus: true, autocomplete: "email", size: "40", class: "form-control" %></td>
         </tr>
-
-    <tr>
+        <tr>
           <th style="width: 150px"><%= f.label :パスワード %></th>
-      <td></td>
-     <td><%= f.password_field :password, autocomplete: "current-password", size: "40", class: "form-control" %></td>
+          <td></td>
+          <td><%= f.password_field :password, autocomplete: "current-password", size: "40", class: "form-control" %></td>
         </tr>
-
-
-
-  <tr>
-   <th style="width: 150px"></th>
-  <td></td>
-   <td> <%= f.submit "ログイン", class: 'btn btn-primary' %></td>
+        <tr>
+         <th style="width: 150px"></th>
+          <td></td>
+         <td> <%= f.submit "ログイン", class: 'btn btn-primary' %></td>
         </tr>
       </table>
-
   <% if devise_mapping.rememberable? %>
     <div class="field">
       <%= f.check_box :remember_me %>
