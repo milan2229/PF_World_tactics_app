@@ -17,7 +17,11 @@ class User < ApplicationRecord
   has_many :follower_user, through: :followed, source: :follower
   has_many :following_user, through: :follower, source: :followed
   # foreign_keyは入口  sourceは出口
-
+  
+  has_many :user_rooms
+  has_many :chats
+  has_many :room, through: :user_rooms
+  
   # ユーザーをフォローする
   def follow(user_id)
     follower.create(followed_id: user_id)

@@ -1,0 +1,23 @@
+// Place all the styles related to the chats controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.chat {
+    text-align: center;
+    margin: 0 auto;
+    width: 80%;
+    padding: 30px 0;
+}
+#chat_message {
+    margin: 45px;
+    width: 50%;
+    text-align: center;
+    margin: 0 auto;
+}
+.created-left{
+    font-size: 10px;
+    text-align: left;
+}
+.created-right{
+    font-size: 10px;
+    text-align: right;
+}

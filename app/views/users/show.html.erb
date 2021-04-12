@@ -1,81 +1,87 @@
 <div class="layout-top">
- <div class="container">
-  <div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
-  <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-  </div>
-  <div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
-  <%= @user.name %>
-  </div>
-  <div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
-  自己紹介 <%= @user.introduction %>
-  </div>
-  <% if @user.id == current_user.id %>
-  <div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
-    <%= link_to "プロフィール編集", edit_user_path(@user) %>
-  </div>
-  <% end %>
+  <div class="container">
+    <div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
+      <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+    </div>
+    <div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
+      <%= @user.name %>
+    </div>
+    <div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
+      自己紹介 <%= @user.introduction %>
+    </div>
+    <% if @user.id == current_user.id %>
+    <div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
+      <%= link_to "プロフィール編集", edit_user_path(@user) %>
+    </div>
+    <% end %>
 
-  <div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
-　<th><i class="fas fa-heart" style="color: red;"></i>いいねした投稿</th>
-　<th><%= link_to @user.favorites.count, user_users_favorites_path(@user.id) %></th>
-　</div>
+    <div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
+    <% if current_user != @user %>
+      <%= link_to 'ダイレクトメッセージ', chat_path(@user.id), class: "far fa-comments btn btn-warning" %>
+    <% end %>
+    </div>
 
-<div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
-<% unless current_user == @user %>
- <% if current_user.following?(@user) %>
-  <td>
-  <%= link_to "フォロー外す", unfollow_path(@user.id), method: :delete, class: "btn btn-danger" %>
-  </td>
- <% else %>
-  <td>
-  <%= link_to "フォローする", follow_path(@user.id), method: :POST, class: "btn btn-success" %>
-  </td>
- <% end %>
-<% end %>
-</div>
+    <div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
+  　<th><i class="fas fa-heart" style="color: red;"></i>いいねした投稿</th>
+  　<th><%= link_to @user.favorites.count, user_users_favorites_path(@user.id) %></th>
+  　</div>
 
-  <div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
-    <% @user ||= current_user %>
-    <th>follows</th>
-    <th><%= link_to @user.follower.count, user_users_followed_path(@user.id) %></th>
-  </div>
+      <div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
+      <% unless current_user == @user %>
+       <% if current_user.following?(@user) %>
+        <td>
+        <%= link_to "フォロー外す", unfollow_path(@user.id), method: :delete, class: "btn btn-danger" %>
+        </td>
+       <% else %>
+        <td>
+        <%= link_to "フォローする", follow_path(@user.id), method: :POST, class: "btn btn-success" %>
+        </td>
+       <% end %>
+      <% end %>
+      </div>
 
-  <div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
-    <th>followers</th>
-    <th><%= link_to @user.followed.count, user_users_follower_path(@user.id) %></th>
-  </div>
+      <div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
+        <% @user ||= current_user %>
+        <th>follows</th>
+        <th><%= link_to @user.follower.count, user_users_followed_path(@user.id) %></th>
+      </div>
+
+      <div class="ield form-group mt-3 text-center col-sm-6 offset-sm-3">
+        <th>followers</th>
+        <th><%= link_to @user.followed.count, user_users_follower_path(@user.id) %></th>
+      </div>
 
   <p class="row justify-content-center" style="padding-top: 20px;">投稿履歴</p>
- <div class="col-12 ml-1">
-   <% if @posts.count == 0 %>
-<h5 style="text-align: center;">まだ投稿がありません。投稿してみましょう！</h5>
-<% else %>
-<% @posts.each do |post| %>
-<div class="card text-center">
-  <div class="card-header">
-     <%= l post.created_at %>に投稿
+     <div class="col-12 ml-1">
+       <% if @posts.count == 0 %>
+      <h5 style="text-align: center;">まだ投稿がありません。投稿してみましょう！</h5>
+      <% else %>
+      <% @posts.each do |post| %>
+    <div class="card text-center">
+      <div class="card-header">
+         <%= l post.created_at %>に投稿
+      </div>
+      <div class="card-body">
+        <h5 class="card-title" style="font-weight: bold;"><%= link_to post.title, post_path(post.id) -%></h5>
+        <p class="card-text"><%= post.body.truncate(100) -%>
+            <% if post.body.size >= 3 -%>
+            <%= link_to post_path(post.id) do %>
+            続きを読む
+            <% end %>
+            <% end %>
+         </p>
+      </div>
+    <div class="card-footer text-muted">
+    <span style="padding-right: 20px;"><i class="far fa-comment-dots"></i>
+    <%= link_to"#{post.post_comments.count}", post_path(post.id) %></span>
+     <span id="favorite-<%= post.id %>">
+     <%= render 'favorites/favorites', post: post %>
+     </span>
+    </div>
+  </div><br>
+  <% end %>
   </div>
-  <div class="card-body">
-    <h5 class="card-title" style="font-weight: bold;"><%= link_to post.title, post_path(post.id) -%></h5>
-    <p class="card-text"><%= post.body.truncate(100) -%>
-        <% if post.body.size >= 3 -%>
-        <%= link_to post_path(post.id) do %>
-        続きを読む
-        <% end %>
-        <% end %>
-     </p>
+   </div>
+   <% end %>
   </div>
-  <div class="card-footer text-muted">
-  <span style="padding-right: 20px;"><i class="far fa-comment-dots"></i>
-  <%= link_to"#{post.post_comments.count}", post_path(post.id) %></span>
-   <span id="favorite-<%= post.id %>">
-   <%= render 'favorites/favorites', post: post %>
-   </span>
-  </div>
-</div><br>
-<% end %>
-</div>
- </div>
- <% end %>
-</div>
 <%= paginate @posts %>

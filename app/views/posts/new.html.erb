@@ -3,32 +3,32 @@
     <h1 style="padding-top: 20px;">記事を投稿する</h1>
   </div>
     <h5 class="tactics">試合の感想、戦術、選手個々のプレースタイルなどご自由に投稿して下さい。<br>
-    WorldTacticsはフットボールに関する知識を記録・共有するためのサービスです。<br>
-    投稿者以外の人にとっても価値のある記事であるように意識して投稿してみましょう！
+      WorldTacticsはフットボールに関する知識を記録・共有するためのサービスです。<br>
+      投稿者以外の人にとっても価値のある記事であるように意識して投稿してみましょう！
     </h5>
-<%= form_with model: @post, local:true do |f| %>
-<div class="form-group" style="width: 337px;">
-  <h4>タイトル</h4>
-  <div class="caution">必須</div>
-    <%= f.text_field :title, placeholder: "タイトルを入力してください", class: "form-control" %>
-</div>
-<div class="form-group">
-  <h4>タグ</h4>
-  <%= text_field_tag 'post[tag_ids]', @post.tag_ids, data: {role: "tagsinput"},placeholder: "4つまでタグ付け可能", class: "form-control" %>
-</div>
+      <%= form_with model: @post, local:true do |f| %>
+        <div class="form-group" style="width: 337px;">
+          <h4>タイトル</h4>
+          <div class="caution">必須</div>
+          <%= f.text_field :title, placeholder: "タイトルを入力してください", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <h4>タグ</h4>
+          <%= text_field_tag 'post[tag_ids]', @post.tag_ids, data: {role: "tagsinput"},placeholder: "4つまでタグ付け可能", class: "form-control" %>
+        </div>
 
-<div class="form-group">
-  <h4>戦術</h4>
-  <div class="caution">必須</div>
-  <%= f.text_area :body, size: "80x10",placeholder: "内容を入力してください", class: "form-control" %>
-</div>
-<div class="row justify-content-center">
-  <%= f.button '投稿する', type: 'button', onclick: 'submit();', class: "btn btn-lg  btn-primary" %>
-
-</div>
-<% end %>
-<%= link_to :back do %><div style="color: black;">
-  <i class="fas fa-undo-alt">戻る</i></div>
-<% end %>
+        <div class="form-group">
+          <h4>戦術</h4>
+          <div class="caution">必須</div>
+          <%= f.text_area :body, size: "80x10",placeholder: "内容を入力してください", class: "form-control" %>
+        </div>
+        <div class="row justify-content-center">
+        <%= f.button '投稿する', type: 'button', onclick: 'submit();', class: "btn btn-lg  btn-primary" %>
+        </div>
+      <% end %>
+      
+    <%= link_to :back do %><div style="color: black;">
+      <i class="fas fa-undo-alt">戻る</i></div>
+    <% end %>
 </div>
 
