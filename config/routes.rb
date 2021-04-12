@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'chats/show'
   # mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   root to: 'homes#top'
   get 'homes/about' => "homes#about"
@@ -24,4 +25,7 @@ Rails.application.routes.draw do
   delete 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow'
 
   resources :inquiries, only: [:new, :create]
+  
+  get 'chat/:id' => 'chats#show', as: 'chat'
+  resources :chats, only: [:create]
 end
