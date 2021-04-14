@@ -1,9 +1,12 @@
 class PostCommentsController < ApplicationController
+
   def create
     @post = Post.find(params[:post_id])
     comment = current_user.post_comments.new(post_comment_params)
     comment.post_id = @post.id
+    @comment_item = comment.post
     if comment.save
+      @comment_item.create_notification_comment!(current_user, post_comment_params)
       redirect_to post_path(@post)
     else
       flash[:alert] = "コメントを入力してください。"
