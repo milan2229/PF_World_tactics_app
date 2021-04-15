@@ -80,3 +80,4 @@ group :production do
 end
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+gem 'whenever', require: false
