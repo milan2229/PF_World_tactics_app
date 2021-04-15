@@ -17,11 +17,14 @@ class User < ApplicationRecord
   has_many :follower_user, through: :followed, source: :follower
   has_many :following_user, through: :follower, source: :followed
   # foreign_keyは入口  sourceは出口
-  
-  has_many :user_rooms
-  has_many :chats
+
+  has_many :user_rooms, dependent: :destroy
+  has_many :chats, dependent: :destroy
   has_many :room, through: :user_rooms
-  
+
+  has_many :active_notifications, class_name: "Notification", foreign_key: "visiter_id", dependent: :destroy
+  has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
+
   # ユーザーをフォローする
   def follow(user_id)
     follower.create(followed_id: user_id)
@@ -39,6 +42,18 @@ class User < ApplicationRecord
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
+    end
+  end
+
+  def create_notification_follow!(current_user)
+    #同じ通知が存在しない時だけレコードを作成
+    temp = Notification.where(["visiter_id = ? and visited_id = ? and action = ? ", current_user.id,id,'follow'])
+    if temp.blank?
+      notification = current_user.active_notifications.new(
+        visited_id: id,
+        action: 'follow'
+        )
+        notification.save if notification.valid?
     end
   end
 end
