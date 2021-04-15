@@ -13,7 +13,7 @@
   <%=safe_join(@post.body.split("\n"),tag(:br))%>
   </h6>
   <div class="ield form-group mt-2 text-center col-sm-8 offset-sm-2">
-    投稿日時：<%= l @post.created_at %></div>
+    投稿日時：<%= l @post.created_at, format: :short %></div>
   <div class="ield form-group mt-2 text-center col-sm-8 offset-sm-2">
     <% if @post.user == current_user %>
     <%= link_to "編集", edit_post_path(@post), class: "btn btn-sm btn-success" %>
