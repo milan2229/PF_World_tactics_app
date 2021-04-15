@@ -11,7 +11,7 @@
   <% post_comment_user = post_comment.user %>
   <td><%= attachment_image_tag post_comment.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></td>
   <td><%= link_to "#{post_comment.user.name}", post_comment.user -%></td>
-  <td>投稿日 : <%= l @post.created_at %></td>
+  <td>投稿日 : <%= l post_comment.created_at, format: :short %></td>
   <td>コメント : </td>
   <td style="word-break: break-word;"><%= post_comment.comment %></td>
   <% if post_comment.user == current_user %>

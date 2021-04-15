@@ -2,8 +2,8 @@ ja:
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
-
-      ja:
+      short: "%m/%d %H:%M"
+  ja:
   datetime:
     distance_in_words:
       half_a_minute: "30秒前後"
@@ -40,3 +40,4 @@ ja:
       over_x_years:
         one:   "1年以上"
         other: "%{count}年以上"
+
