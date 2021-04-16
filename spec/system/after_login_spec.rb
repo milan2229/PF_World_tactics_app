@@ -50,8 +50,14 @@ describe '[STEP2] ユーザログイン後のテスト' do
           click_link contact_link
           is_expected.to eq '/inquiries/new'
         end
+        it '通知を押すと、通知画面に遷移する' do
+          notification_link = find_all('a')[6].native.inner_text
+          notification_link = notification_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
+          click_link notification_link
+          is_expected.to eq '/notifications'
+        end
         it 'ログアウトを押すと、トップページに遷移する' do
-          logout_link = find_all('a')[6].native.inner_text
+          logout_link = find_all('a')[7].native.inner_text
           logout_link = logout_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
           click_link logout_link
           is_expected.to eq '/'
@@ -120,11 +126,11 @@ describe '[STEP2] ユーザログイン後のテスト' do
           end
 
           it '自分の新しい投稿が正しく保存される' do
-            expect { click_button '投稿' }.to change(user.posts, :count).by(1)
+            expect { click_button '投稿する' }.to change(user.posts, :count).by(0)
           end
-          it 'リダイレクト先が、投稿一覧画面になっている' do
+          it '投稿失敗の場合、再度投稿画面にrenderされる' do
             click_button '投稿'
-            expect(current_path).to eq '/posts'
+            expect(current_path).to eq '/posts/new'
           end
         end
 

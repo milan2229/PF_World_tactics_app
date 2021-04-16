@@ -1,15 +1,18 @@
 class PostsController < ApplicationController
-
   def new
     @post = Post.new
   end
 
   def index
     @search = Post.ransack(params[:q])
-    @posts = @search.result(distinct: true).order(created_at: "DESC").includes(:user).page(params[:page]).per(10)
-    @posts = @posts.joins(:tag_relationships).where(tag_relationships: {tag_id: params[:tag_id]}) if params[:tag_id].present?
+    @posts = @search.result(distinct: true).
+      order(created_at: "DESC").includes(:user).page(params[:page]).per(10)
+    if params[:tag_id].present?
+      @posts = @posts.joins(:tag_relationships).
+        where(tag_relationships: { tag_id: params[:tag_id] })
+    end
     @all_ranks = Post.find(Favorite.group(:post_id).
-    order(Arel.sql('count(post_id) desc')).limit(8).pluck(:post_id))
+      order(Arel.sql('count(post_id) desc')).limit(8).pluck(:post_id))
   end
 
   def show
@@ -45,8 +48,8 @@ class PostsController < ApplicationController
       flash[:notice] = '投稿を編集しました‼'
       redirect_to @post
     else
-     flash[:alert] = "内容が正しくありません。"
-     render 'edit'
+      flash[:alert] = "内容が正しくありません。"
+      render 'edit'
     end
   end
 

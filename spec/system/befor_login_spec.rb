@@ -203,29 +203,33 @@ describe '[STEP1] ユーザログイン前のテスト' do
       it 'タイトルが表示される' do
         expect(page).to have_content 'World Tactics'
       end
-      it '投稿一覧リンクが表示される: 左上から1番目のリンクが「投稿一覧」である' do
+      it '投稿フォームリンクが表示される: 左上から1番目のリンクが「投稿フォーム」である' do
         post_link = find_all('a')[1].native.inner_text
         expect(post_link).to match("戦術投稿フォーム")
       end
-      it 'Aboutリンクが表示される: 左上から2番目のリンクが「About」である' do
+      it '投稿一覧リンクが表示される: 左上から2番目のリンクが「投稿一覧」である' do
         posts_link = find_all('a')[2].native.inner_text
         expect(posts_link).to match("戦術投稿一覧")
       end
-      it 'ゲストログインリンクが表示される: 左上から3番目のリンクが「ゲストログイン(閲覧用)」である' do
+      it 'ユーザー一覧リンクが表示される: 左上から3番目のリンクが「ゲストログイン(閲覧用)」である' do
         users_guest_link = find_all('a')[3].native.inner_text
         expect(users_guest_link).to match("ユーザー一覧")
       end
-      it '投稿一覧リンクが表示される: 左上から4番目のリンクが「マイページ」である' do
+      it 'マイページリンクが表示される: 左上から4番目のリンクが「マイページ」である' do
         mypage_link = find_all('a')[4].native.inner_text
         expect(mypage_link).to match("マイページ")
       end
-      it 'Aboutリンクが表示される: 左上から5番目のリンクが「お問い合わせ」である' do
+      it 'お問い合わせリンクが表示される: 左上から5番目のリンクが「お問い合わせ」である' do
         contact_link = find_all('a')[5].native.inner_text
         expect(contact_link).to match("お問い合わせ")
       end
-      it 'ゲストログインリンクが表示される: 左上から6番目のリンクが「ログアウト」である' do
-        logout_link = find_all('a')[6].native.inner_text
+      it 'ログアウトリンクが表示される: 左上から7番目のリンクが「ログアウト」である' do
+        logout_link = find_all('a')[7].native.inner_text
         expect(logout_link).to match("ログアウト")
+      end
+      it '通知リンクが表示される: 左上から6番目のリンクが「通知」である' do
+        notification_link = find_all('a')[6].native.inner_text
+        expect(notification_link).to match("通知")
       end
     end
   end
@@ -238,7 +242,7 @@ describe '[STEP1] ユーザログイン前のテスト' do
       fill_in 'user[password]', with: user.password
       fill_in 'user[email]', with: user.email
       click_button 'ログイン'
-      logout_link = find_all('a')[6].native.inner_text
+      logout_link = find_all('a')[7].native.inner_text
       logout_link = logout_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
       click_link logout_link
     end
@@ -246,6 +250,9 @@ describe '[STEP1] ユーザログイン前のテスト' do
     context 'ログアウト機能のテスト' do
       it '正しくログアウトできている: ログアウト後のリダイレクト先においてAbout画面へのリンクが存在する' do
         expect(page).to have_link '', href: '/homes/about'
+      end
+      it '正しくログアウトできている: ログアウト後のリダイレクト先においてゲストログインリンクが存在する' do
+        expect(page).to have_link '', href: '/posts'
       end
       it 'ログアウト後のリダイレクト先が、トップになっている' do
         expect(current_path).to eq '/'

@@ -32,5 +32,4 @@ Rails.application.routes.draw do
   resources :notifications, only: [:index]
 
   delete '/notification/destroy_all' => 'notifications#destroy_all'
-
 end

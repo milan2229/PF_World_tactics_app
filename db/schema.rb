@@ -11,7 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2021_04_14_110112) do
-
   create_table "chats", force: :cascade do |t|
     t.integer "user_id"
     t.integer "room_id"
@@ -68,7 +67,9 @@ ActiveRecord::Schema.define(version: 2021_04_14_110112) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["followed_id"], name: "index_relationships_on_followed_id"
-    t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
+    t.index ["follower_id", "followed_id"],
+            name: "index_relationships_on_follower_id_and_followed_id",
+            unique: true
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
@@ -82,7 +83,9 @@ ActiveRecord::Schema.define(version: 2021_04_14_110112) do
     t.integer "tag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["post_id", "tag_id"], name: "index_tag_relationships_on_post_id_and_tag_id", unique: true
+    t.index ["post_id", "tag_id"],
+            name: "index_tag_relationships_on_post_id_and_tag_id",
+            unique: true
     t.index ["post_id"], name: "index_tag_relationships_on_post_id"
     t.index ["tag_id"], name: "index_tag_relationships_on_tag_id"
   end
@@ -114,5 +117,4 @@ ActiveRecord::Schema.define(version: 2021_04_14_110112) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
-
 end
