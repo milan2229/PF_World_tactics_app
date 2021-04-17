@@ -42,7 +42,7 @@ jobs:
     - name: Setup Ruby Version
       uses: actions/setup-ruby@master
       with:
-        ruby-version: 2.6.x
+        ruby-version: 2.6.3
 
     - name: Install dependent libralies
       run: sudo apt-get install libmysqlclient-dev
