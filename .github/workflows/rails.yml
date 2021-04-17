@@ -24,9 +24,14 @@ jobs:
     - name: Setup bundler
       run: gem install bundler
 
+    # - name: bundle install
+    #   run: |
+    #     bundle install --jobs 4 --retry 3
+
     - name: bundle install
       run: |
-        bundle install --jobs 4 --retry 3
+        gem install bundler
+        bundle install --jobs 4 --retry 3 --path vendor/bundle
 
     - name: Setup Database
       run: |
@@ -42,12 +47,12 @@ jobs:
       env:
         RAILS_ENV: test
 
-    - name: Archive rspec result screenshots
-      if: failure()
-      uses: actions/upload-artifact@v1
-      with:
-        name: rspec result screenshots
-        path: tmp/screenshots/
+    # - name: Archive rspec result screenshots
+    #   if: failure()
+    #   uses: actions/upload-artifact@v1
+    #   with:
+    #     name: rspec result screenshots
+    #     path: tmp/screenshots/
 
     - name: Set up
       env:
