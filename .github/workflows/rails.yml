@@ -49,7 +49,6 @@ jobs:
         name: rspec result screenshots
         path: tmp/screenshots/
 
-
     - name: Set up
       env:
         PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
