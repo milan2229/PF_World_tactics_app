@@ -17,29 +17,16 @@ jobs:
       uses: ruby/setup-ruby@v1.68.0
       with:
         ruby-version: 2.6.3
-            - name: Cache node modules
-      uses: actions/cache@v2.1.4
-      with:
-        path: node_modules
-        key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - name: bundle install
-      run: |
-        gem install bundler
-        bundle install --jobs 4 --retry 3 --path vendor/bundle
-    - name: yarn install
-      run:  yarn install --check-files
 
     - name: Install dependent libralies
       run: sudo apt-get install libmysqlclient-dev
 
-    # - name: Setup bundler
-    #   run: gem install bundler
+    - name: Setup bundler
+      run: gem install bundler
 
-    # - name: bundle install
-    #   run: |
-    #     bundle install --jobs 4 --retry 3
+    - name: bundle install
+      run: |
+        bundle install --jobs 4 --retry 3
 
     - name: Setup Database
       run: |
