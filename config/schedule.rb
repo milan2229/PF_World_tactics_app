@@ -25,6 +25,6 @@ set :output, 'log/cron.log'
 
 set :environment, :development
 
-every 1.days, at: '11:00 pm' do
+every 1.days, at: '9:00 am' do
   runner "ScheduledProcessingMailer.check_notice_mail.deliver_now"
 end
