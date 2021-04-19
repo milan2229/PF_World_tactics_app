@@ -61,8 +61,7 @@ jobs:
     # - name: run rubocop
     #   run: gem install rubocop
     #         rubocop
-
-     - name: Rubocop checks
+     - name: run rubocop
        run: bundle exec rubocop
 
     - name: Set up
