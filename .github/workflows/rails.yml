@@ -58,11 +58,10 @@ jobs:
       # with:
       #   ruby-version: 2.6.3
       #   bundler-cache: true
+    - name: run rubocop
+      run: bundle exec rubocop
     # - name: run rubocop
-    #   run: gem install rubocop
-    #         rubocop
-     - name: run rubocop
-       run: bundle exec rubocop
+    #   run: bundle exec rubocop
 
     - name: Set up
       env:
