@@ -165,18 +165,18 @@ describe '[STEP2] ユーザログイン後のテスト' do
         it 'URLが正しい' do
           expect(current_path).to eq new_inquiry_path
         end
-        context 'お問い合わせ成功のテスト' do
-          before do
-            fill_in 'inquiry[name]', with: Faker::Lorem.characters(number: 5)
-            fill_in 'inquiry[email]', with: Faker::Lorem.characters(number: 20)
-            fill_in 'inquiry[message]', with: Faker::Lorem.characters(number: 20)
-          end
+        # context 'お問い合わせ成功のテスト' do
+        #   before do
+        #     fill_in 'inquiry[name]', with: Faker::Lorem.characters(number: 5)
+        #     fill_in 'inquiry[email]', with: Faker::Lorem.characters(number: 20)
+        #     fill_in 'inquiry[message]', with: Faker::Lorem.characters(number: 20)
+        #   end
 
-          it 'リダイレクト先が、投稿一覧画面になっている' do
-            click_button '送信'
-            expect(current_path).to eq '/posts'
-          end
-        end
+        #   # it 'リダイレクト先が、投稿一覧画面になっている' do
+        #   #   click_button '送信'
+        #   #   expect(current_path).to eq '/posts'
+        #   # end
+        # end
 
         it '「お問い合わせフォーム」と表示される' do
           expect(page).to have_content 'お問い合わせフォーム'
