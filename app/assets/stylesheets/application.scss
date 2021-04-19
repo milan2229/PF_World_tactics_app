@@ -18,6 +18,18 @@
  @import 'font-awesome';
  @import 'tagsinput';
 
+@media screen and(max-width:425px){
+  .top {
+  background-size: 100%;
+  background-size: cover;
+  position: relative;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  }
+.world{
+		font-size: 80px;
+}
+}
 .header{
 padding: 8px;
 }
