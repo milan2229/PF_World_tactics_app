@@ -50,7 +50,7 @@ jobs:
         path: tmp/screenshots/
     
     rubocop:
-    runs-on: ubuntu-latest
+    # runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby 2.6
