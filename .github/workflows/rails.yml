@@ -48,8 +48,21 @@ jobs:
       with:
         name: rspec result screenshots
         path: tmp/screenshots/
-
-
+    
+    rubocop:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Ruby 2.6
+      uses: ruby/setup-ruby@v1.68.0
+      with:
+        ruby-version: 2.6.3
+        bundler-cache: true
+    - name: run rubocop
+      run: |
+        gem install rubocop
+        rubocop
+        
     - name: Set up
       env:
         PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}

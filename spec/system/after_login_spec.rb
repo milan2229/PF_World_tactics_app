@@ -172,10 +172,10 @@ describe '[STEP2] ユーザログイン後のテスト' do
             fill_in 'inquiry[message]', with: Faker::Lorem.characters(number: 20)
           end
 
-          # it 'リダイレクト先が、投稿一覧画面になっている' do
-          #   click_button '送信'
-          #   expect(current_path).to eq '/posts'
-          # end
+          it 'リダイレクト先が、投稿一覧画面になっている' do
+            click_button '送信'
+            expect(current_path).to eq '/posts'
+          end
         end
 
         it '「お問い合わせフォーム」と表示される' do
