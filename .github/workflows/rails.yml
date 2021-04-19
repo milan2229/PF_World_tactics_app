@@ -49,15 +49,15 @@ jobs:
         name: rspec result screenshots
         path: tmp/screenshots/
     
-    rubocop:
+    # rubocop:
     # runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Set up Ruby 2.6
-      uses: ruby/setup-ruby@v1.68.0
-      with:
-        ruby-version: 2.6.3
-        bundler-cache: true
+    # steps:
+    # - uses: actions/checkout@v2
+    # - name: Set up Ruby 2.6
+      # uses: ruby/setup-ruby@v1.68.0
+      # with:
+      #   ruby-version: 2.6.3
+      #   bundler-cache: true
     - name: run rubocop
       run: |
         gem install rubocop
