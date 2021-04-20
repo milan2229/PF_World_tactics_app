@@ -23,8 +23,8 @@ env :PATH, ENV['PATH']
 
 set :output, 'log/cron.log'
 
-set :environment, :development
+set :environment, :prodaction
 
-every 1.days, at: '9:00 am' do
+every 1.days, at: '1:00 am' do
   runner "ScheduledProcessingMailer.check_notice_mail.deliver_now"
 end
