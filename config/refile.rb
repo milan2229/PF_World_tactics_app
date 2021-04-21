@@ -9,9 +9,6 @@
 # Refile.cache = Refile::S3.new(prefix: "cache", **aws)
 # Refile.store = Refile::S3.new(prefix: "store", **aws)
 
-
-
-
 require 'refile/s3'
 
 # if !Rails.env.development? # 開発環境でS3へアップロードできているか確認する方法
