@@ -40,10 +40,11 @@ src="https://user-images.githubusercontent.com/64453093/114139074-83554d00-9949-
 - RSpec
 
 ## AWS構成図
-<img width="1427" alt="AWS構成図"
-src="https://github.com/milan2229/PF_World_tactics_app/files/6362271/PF.AWS.pdf">
-![AWS構成図](https://github.com/milan2229/PF_World_tactics_app/files/6362271/PF.AWS.pdf "AWS")
-<img src="https://github.com/milan2229/PF_World_tactics_app/files/6362271/PF.AWS.pdf" alt="AWS構成図" title="AWS">
+<!--<img width="1427" alt="AWS構成図"-->
+<!--src="https://github.com/milan2229/PF_World_tactics_app/files/6362271/PF.AWS.pdf">-->
+<!--![AWS構成図](https://github.com/milan2229/PF_World_tactics_app/files/6362271/PF.AWS.pdf "AWS")-->
+<!--<img src="https://github.com/milan2229/PF_World_tactics_app/files/6362271/PF.AWS.pdf" alt="AWS構成図" title="AWS">-->
+<img src="assets/images/aws.pdf" >
 ### GitHub Actions
 * masterブランチへのpush時、RspecとRubocopが成功した場合のみEC2への自動デプロイが実行されます
 
