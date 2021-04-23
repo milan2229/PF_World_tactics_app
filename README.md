@@ -1,6 +1,6 @@
-# World tactics
-<img width="1427" alt="READMEスクリーンショット 2021-04-07 16 40 44"
-src="https://user-images.githubusercontent.com/64453093/114139074-83554d00-9949-11eb-849a-51f8025e2f4a.png">
+# World Tactics
+<img width="1437" alt="スクリーンショット 2021-04-23 11 15 20" 
+src="https://user-images.githubusercontent.com/64453093/115827795-c1716700-a447-11eb-9968-cd62fb90621c.png">
 
 ## URL
 [worldtactics.jp](https://worldtactics.jp/)
@@ -11,7 +11,8 @@ src="https://user-images.githubusercontent.com/64453093/114139074-83554d00-9949-
 ユーザー同士で最新の戦術について語りあうSNS。
 
 ### サイトテーマ
-日本サッカー界の戦術的理解度の低さなどを指摘されるなかで、ライトなサッカーファンや、現役でプレーしている育成年代から戦術をよりよく学びサッカーIQを向上させる
+日本サッカー界の戦術的理解度の低さなどを指摘されるなかで、ライトなサッカーファンや、
+現役でプレーしている育成年代から戦術をよりよく学びサッカーIQを向上させる
 ことをテーマにしました。
 
 ### テーマを選んだ理由
