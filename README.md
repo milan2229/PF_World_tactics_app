@@ -37,20 +37,25 @@ src="https://user-images.githubusercontent.com/64453093/114139074-83554d00-9949-
  * Route53
  * CloudWatch
  * S3
-- RSpec
+* RSpec
 
 ## AWS構成図
 <!--<img width="1427" alt="AWS構成図"-->
 <!--src="https://github.com/milan2229/PF_World_tactics_app/files/6362271/PF.AWS.pdf">-->
 <!--![AWS構成図](https://github.com/milan2229/PF_World_tactics_app/files/6362271/PF.AWS.pdf "AWS")-->
 <!--<img src="https://github.com/milan2229/PF_World_tactics_app/files/6362271/PF.AWS.pdf" alt="AWS構成図" title="AWS">-->
-<img src="assets/images/aws.pdf" >
+[PF AWS構成図.pdf](https://github.com/milan2229/PF_World_tactics_app/files/6362791/PF.AWS.pdf)
+![PF AWS構成図](https://user-images.githubusercontent.com/64453093/115819754-7bfa6d00-a43a-11eb-9745-eaca902cf0bf.jpg)
+
+
 ### GitHub Actions
 * masterブランチへのpush時、RspecとRubocopが成功した場合のみEC2への自動デプロイが実行されます
 
 ## ER図
 <img width="1427" alt="ER図"
 src="https://github.com/milan2229/PF_World_tactics_app/files/6362295/erd.pdf">
+[erd.pdf](https://github.com/milan2229/PF_World_tactics_app/files/6362790/erd.pdf)
+
 
 ### 機能一覧
 * CRUD処理
