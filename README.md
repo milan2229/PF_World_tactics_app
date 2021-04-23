@@ -24,12 +24,43 @@ src="https://user-images.githubusercontent.com/64453093/114139074-83554d00-9949-
 サッカー観戦時にリアルタイムで情報共有し、ピッチ上で何が起こっているのかを理解しより楽しむため。<br>
 最新の戦術を自分達のチームに取り入れる。
 
+### 使用技術
+- Ruby 2.6.3
+- Ruby on Rails 5.2.5
+- MySQL 5.7.2.2
+- Nginx
+- Puma
+- AWS
+ - VPC
+ - EC2
+ - RDS
+ - Route53
+ - CloudWatch
+ - S3
+- RSpec
+
+## AWS構成図
+[PF AWS構成図.pdf](https://github.com/milan2229/PF_World_tactics_app/files/6362271/PF.AWS.pdf)
+###GitHub Actions
+- masterブランチへのpush時、RspecとRubocopが成功した場合のみEC2への自動デプロイが実行されます
+
+## ER図
+[erd.pdf](https://github.com/milan2229/PF_World_tactics_app/files/6362295/erd.pdf)
 
 ### 機能一覧
-https://docs.google.com/spreadsheets/d/1ifacPpWqpcpGqtit_JDffgZ-z3Yy1WzUtKwoTtcJNZo/edit#gid=0
+- CRUD処理
+- ユーザー登録、ログイン機能(devise)
+- 投稿機能
+- いいね機能(Ajax)
+- コメント機能(Ajax)
+- フォロー機能(Ajax)
+- お問い合わせ
+- 検索機能(ransack)
+- DM機能
+- タグ機能
+- 画像スライダー
+- ページネーション機能(kaminari)
+- 通知機能
+- バッチ処理(未読通知３件で翌朝９時にメールで通知)
 
-### 開発環境
-- OS：Linux(CentOS)
-- 言語：HTML,CSS,Ruby,javascript
-- フレームワーク：Ruby on Rails
-- IDE：Cloud9
+https://docs.google.com/spreadsheets/d/1ifacPpWqpcpGqtit_JDffgZ-z3Yy1WzUtKwoTtcJNZo/edit#gid=0
