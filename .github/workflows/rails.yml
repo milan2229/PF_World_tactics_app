@@ -36,6 +36,8 @@ jobs:
         bundle exec rails db:schema:load
       env:
         RAILS_ENV: test
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
     - name: Run RSpec
       run: bundle exec rspec
@@ -49,19 +51,8 @@ jobs:
         name: rspec result screenshots
         path: tmp/screenshots/
 
-    # rubocop:
-    # runs-on: ubuntu-latest
-    # steps:
-    # - uses: actions/checkout@v2
-    # - name: Set up Ruby 2.6
-      # uses: ruby/setup-ruby@v1.68.0
-      # with:
-      #   ruby-version: 2.6.3
-      #   bundler-cache: true
     - name: run rubocop
       run: bundle exec rubocop
-    # - name: run rubocop
-    #   run: bundle exec rubocop
 
     - name: Set up
       env:
