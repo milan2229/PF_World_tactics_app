@@ -1,69 +1,15 @@
-name: Rails-Rspec-Deploy
+name: Rails CI/CD
 
 on:
-  pull_request:
-    branches:
-      - master
-    types: [closed]
+  push:
+    branches: [master]
 
 jobs:
-  setup_and_test_execution:
+  build:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true
-
     steps:
     - uses: actions/checkout@v2
-    - name: Setup Ruby Version
-      uses: ruby/setup-ruby@v1.68.0
-      with:
-        ruby-version: 2.6.3
-
-    - name: Install dependent libralies
-      run: sudo apt-get install libmysqlclient-dev
-
-    - name: Setup bundler
-      run: gem install bundler
-
-    - name: bundle install
-      run: |
-        bundle install --jobs 4 --retry 3
-
-    - name: Setup Database
-      run: |
-        cp config/database.yml.ci config/database.yml
-        sudo systemctl start mysql
-        bundle exec rails db:create
-        bundle exec rails db:schema:load
-      env:
-        RAILS_ENV: test
-
-    - name: Run RSpec
-      run: bundle exec rspec
-      env:
-        RAILS_ENV: test
-
-    - name: Archive rspec result screenshots
-      if: failure()
-      uses: actions/upload-artifact@v1
-      with:
-        name: rspec result screenshots
-        path: tmp/screenshots/
-
-    # rubocop:
-    # runs-on: ubuntu-latest
-    # steps:
-    # - uses: actions/checkout@v2
-    # - name: Set up Ruby 2.6
-      # uses: ruby/setup-ruby@v1.68.0
-      # with:
-      #   ruby-version: 2.6.3
-      #   bundler-cache: true
-    - name: run rubocop
-      run: bundle exec rubocop
-    # - name: run rubocop
-    #   run: bundle exec rubocop
-
-    - name: Set up
+    - name: Deploy 
       env:
         PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
         USER_NAME: ${{ secrets.USER_NAME }}
@@ -75,6 +21,5 @@ jobs:
         ~/.rbenv/shims/bundle install &&
         ~/.rbenv/shims/bundle exec rails assets:precompile RAILS_ENV=production &&
         ~/.rbenv/shims/bundle exec rails db:migrate RAILS_ENV=production &&
-        if [[ -e tmp/pids/puma.pid ]];then kill $(cat tmp/pids/puma.pid); echo kill puma process;fi &&
+        if [[ -e tmp/pids/puma.pid ]];then sudo kill $(cat tmp/pids/puma.pid); echo kill puma process;fi &&
         ~/.rbenv/shims/rails s -e production'
-
