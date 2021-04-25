@@ -32,3 +32,5 @@
 /.env
 *.dot
 *erb.pdf
+vendor/bundle/
+
