@@ -1,8 +1,18 @@
 inherit_from:
   - .rubocop_airbnb.yml
+  - .rubocop_todo.yml
+
+#AllCops:
+# Exclude:
+#  - 'bin/setup'
+#  - 'bin/update'
+#  - 'app/helpers/notifications_helper.rb'
+
 
 AllCops:
- Exclude:
-  - 'bin/setup'
-  - 'bin/update'
-  - 'app/helpers/notifications_helper.rb'
+  Exclude:
+    - 'node_modules/**/*'
+    - 'bin/*'
+    - 'vendor/**/*'
+    - '.git/**/*'
+    - 'app/helpers/*'
