@@ -15,10 +15,10 @@ Gem::Specification.new do |s|
   s.files = ["LICENSE.txt".freeze, "README.md".freeze]
   s.homepage = "http://github.com/tigrish/devise-i18n".freeze
   s.licenses = ["MIT".freeze]
-  s.rubygems_version = "3.0.8".freeze
+  s.rubygems_version = "3.0.3".freeze
   s.summary = "Translations for the devise gem".freeze
 
-  s.installed_by_version = "3.0.8" if s.respond_to? :installed_by_version
+  s.installed_by_version = "3.0.3" if s.respond_to? :installed_by_version
 
   if s.respond_to? :specification_version then
     s.specification_version = 4
