@@ -1,5 +1,5 @@
-current directory: /home/ec2-user/environment/World_tactics/vendor/bundle/ruby/2.6.0/gems/nio4r-2.5.7/ext/nio4r
-/home/ec2-user/.rvm/rubies/ruby-2.6.3/bin/ruby -I /home/ec2-user/.rvm/rubies/ruby-2.6.3/lib/ruby/site_ruby/2.6.0 -r ./siteconf20210425-29097-1wi5lak.rb extconf.rb
+current directory: /home/ec2-user/PF_World_tactics_app/vendor/bundle/ruby/2.6.0/gems/nio4r-2.5.7/ext/nio4r
+/home/ec2-user/.rbenv/versions/2.6.3/bin/ruby -I /home/ec2-user/.rbenv/versions/2.6.3/lib/ruby/2.6.0 -r ./siteconf20210425-5857-1aaygaq.rb extconf.rb
 checking for unistd.h... yes
 checking for linux/aio_abi.h... yes
 checking for linux/io_uring.h... no
@@ -11,10 +11,10 @@ checking for port_event_t in port.h... no
 checking for sys/resource.h... yes
 creating Makefile
 
-current directory: /home/ec2-user/environment/World_tactics/vendor/bundle/ruby/2.6.0/gems/nio4r-2.5.7/ext/nio4r
+current directory: /home/ec2-user/PF_World_tactics_app/vendor/bundle/ruby/2.6.0/gems/nio4r-2.5.7/ext/nio4r
 make "DESTDIR=" clean
 
-current directory: /home/ec2-user/environment/World_tactics/vendor/bundle/ruby/2.6.0/gems/nio4r-2.5.7/ext/nio4r
+current directory: /home/ec2-user/PF_World_tactics_app/vendor/bundle/ruby/2.6.0/gems/nio4r-2.5.7/ext/nio4r
 make "DESTDIR="
 compiling bytebuffer.c
 compiling monitor.c
@@ -66,6 +66,6 @@ cc1: warning: unrecognized command line option ‘-Wno-cast-function-type’
 compiling selector.c
 linking shared-object nio4r_ext.so
 
-current directory: /home/ec2-user/environment/World_tactics/vendor/bundle/ruby/2.6.0/gems/nio4r-2.5.7/ext/nio4r
+current directory: /home/ec2-user/PF_World_tactics_app/vendor/bundle/ruby/2.6.0/gems/nio4r-2.5.7/ext/nio4r
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 nio4r_ext.so ./.gem.20210425-29097-110pdyv
+/usr/bin/install -c -m 0755 nio4r_ext.so ./.gem.20210425-5857-de0wlf
