@@ -1,9 +1,6 @@
 inherit_from:
   - .rubocop_airbnb.yml
 
-inherit_gem:
-  rubocop-discourse: config/default.yml
-
 AllCops:
  Exclude:
   - 'bin/setup'
