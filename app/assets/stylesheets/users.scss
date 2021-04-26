@@ -4,3 +4,20 @@
 .layout-top{
   padding-top: 20px;
 }
+
+@media screen and (max-width: 600px) {
+ table table-hover  > tr {
+    background-color: red;
+    border-style: none;
+    // border: 0px none;
+    // border: none;
+}
+
+ table table-hover > th, td {
+    display: block;
+  }
+ .white {
+  text-align: center;
+  // margin: 10px 30px;
+  }
+}

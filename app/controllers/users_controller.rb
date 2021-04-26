@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     @search = User.ransack(params[:q])
     @users = @search.result(distinct: true).order(created_at: "DESC").page(params[:page]).per(10)
     @all_ranks = Post.find(Favorite.group(:post_id).
-    order(Arel.sql('count(post_id) desc')).limit(8).pluck(:post_id))
+    order(Arel.sql('count(post_id) desc')).limit(3).pluck(:post_id))
   end
 
   def show
