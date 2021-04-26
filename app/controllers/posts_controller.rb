@@ -12,7 +12,7 @@ class PostsController < ApplicationController
         where(tag_relationships: { tag_id: params[:tag_id] })
     end
     @all_ranks = Post.find(Favorite.group(:post_id).
-      order(Arel.sql('count(post_id) desc')).limit(8).pluck(:post_id))
+      order(Arel.sql('count(post_id) desc')).limit(3).pluck(:post_id))
   end
 
   def show

@@ -1,25 +1,25 @@
 <%= search_form_for @search, url: posts_path do |f| %>
 <div class="flex-container">
-<div class="search">
-<%= f.search_field :title_cont, placeholder: "投稿タイトル、本文で検索", class: "form-control" %></div>
+ <div class="search">
+  <%= f.search_field :title_cont, placeholder: "投稿タイトル、本文で検索", class: "form-control" %></div>
   <%= f.submit '検索', class: "btn btn-primary" %>
-<% end %>
+  <% end %>
 </div>
 <div class="tag_search">
-<i class="fas fa-tags" style="margin: 0 auto;"></i>タグで絞り込む
-<%= form_with url: posts_path, method: :get, class: 'tag_search' do %>
+ <i class="fas fa-tags" style="margin: 0 auto;"></i>タグで絞り込む
+ <%= form_with url: posts_path, method: :get, class: 'tag_search' do %>
   <%= select_tag :tag_id,options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
     {prompt: 'タグで絞り込む', onchange: 'submit(this.form);', class: "form-control"}%>
-<% end %>
+ <% end %>
 </div>
-<div class="col-12 ml-1">
-<% posts.each do |post| %>
-<div class="card text-center">
-  <div class="card-header">
-   <%= attachment_image_tag post.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" -%>
-    <%= link_to post.user.name, user_path(post.user) -%>さんが
+ <div class="col-12 ml-1">
+  <% posts.each do |post| %>
+   <div class="card text-center">
+    <div class="card-header">
+     <%= attachment_image_tag post.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" -%>
+     <%= link_to post.user.name, user_path(post.user) -%>さんが
      <%= l post.created_at %>に投稿
-  </div>
+    </div>
   <div class="card-body">
     <h5 class="card-title" style="font-weight: bold;"><%= link_to post.title, post_path(post.id) -%></h5>
     <p class="card-text"><%= post.body.truncate(100) -%>
